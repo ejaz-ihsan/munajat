@@ -228,6 +228,9 @@ input[type=time]{background:var(--surface2);border:0;border-radius:8px;color:var
 <div id="layer"></div>
 
 <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 /* ---------- Content ---------- */
 let DUAS = [
@@ -600,6 +603,7 @@ account(){const sw=(k)=>`<button class="switch ${S[k]?"on":""}" data-switch="${k
   <button class="item" data-sheet="tlFont">${ic("case-sensitive")}<div class="t">Transliteration Font</div><span class="v">${S.tlFont}</span>${ic("chevron-right","class='chev'")}</button>
   <button class="item danger" data-sheet="reset">${ic("trash-2")}<div class="t">Reset All Data</div></button>
  </div>
+ ${USER?`<div class="card"><div class="item">${ic("circle-user")}<div class="t">Signed in<small style="word-break:break-all">${esc(USER.email)}</small></div></div>${IS_ADMIN?`<button class="item" data-auth="admin">${ic("users")}<div class="t">Manage buyers<small>Add or remove buyer emails</small></div>${ic("chevron-right","class='chev'")}</button>`:""}<button class="item" data-auth="logout">${ic("log-out")}<div class="t">Log out</div></button></div>`:""}
  <div class="card">
   <button class="item" data-page="help">${ic("life-buoy")}<div class="t">Help &amp; Support</div>${ic("chevron-right","class='chev'")}</button>
   <button class="item" data-page="privacy">${ic("lock")}<div class="t">Privacy Policy</div>${ic("chevron-right","class='chev'")}</button>
@@ -610,7 +614,7 @@ account(){const sw=(k)=>`<button class="switch ${S[k]?"on":""}" data-switch="${k
 function catBtn(c){return `<button class="cat" data-cat="${c.id}"><div class="ic" style="background:color-mix(in srgb,${c.color} 16%,var(--surface));color:${c.color}">${ic(c.icon)}</div><span>${esc(c.name)}</span>${ic("chevron-right","class='chev'")}</button>`}
 const PAGES = {
  help:["Help & Support",`<h3>Daily goals</h3><p>Each goal is a set of duas to read every day. Tap “I'm Done” after reading a dua to mark it. Progress starts fresh each morning.</p><h3>Adding goals</h3><p>Open Explore, pick a topic, then tap “Add as daily goal”.</p><h3>Saving duas</h3><p>Tap the bookmark on a dua card. Find them later under Account → Saved Duas.</p><h3>Contact</h3><p>Questions or corrections to a dua? Email the app's support address listed on the store page.</p>`],
- privacy:["Privacy Policy",`<p>Everything you enter (your name, goals, saved duas and settings) is stored only on this device, in your browser. Nothing is sent to a server or shared with anyone.</p><p>Clearing your browser data, or using Reset All Data, removes it permanently.</p>`],
+ privacy:["Privacy Policy",`<p>Your account email and your Munajat progress (name, intentions, saved duas, checklist ticks, Arabic words and settings) are stored in your account with Google Firebase, so you can log in on any phone. They are used only to run Munajat and are never sold or shared.</p><p>Using Reset All Data clears your progress. To delete your account completely, contact us.</p>`],
  terms:["Terms of Use",`<p>This app is offered for personal, non-commercial devotional use. Duas are drawn from the Qur'an and well-known hadith collections, with references shown under each one.</p><p>Translations and transliterations are approximate aids. For religious rulings, please consult a qualified scholar.</p>`]
 };
 
@@ -729,29 +733,131 @@ const SHEETS={
 };
 let tt;function toast(m){clearTimeout(tt);document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);tt=setTimeout(()=>t.remove(),1800)}
 if(window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>render());
-/* ---------- Access code (buyers only) ---------- */
-const ACCESS_HASH = "363f693cef3005abcf5799e77bf6cc4586f50616f5a2e06461a47abdff939e12";
-async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
-function hasAccess(){try{return localStorage.getItem("munajat-access")===ACCESS_HASH}catch(e){return false}}
-function showGate(){document.getElementById("tabbar").hidden=true;
- app.innerHTML=`<div class="stack" style="gap:22px;padding-top:12vh;text-align:center;align-items:center">
- <div class="avatar" style="width:84px;height:84px"><span style="font-size:34px">م</span></div>
- <div><h1 class="big">Munajat</h1><p class="muted" style="margin:8px 0 0;line-height:1.5">Enter your name and the access code you received with your purchase.</p></div>
- <form id="gate" class="stack" style="gap:12px;width:100%;max-width:340px">
- <input class="field" id="bname" autocomplete="given-name" maxlength="30" placeholder="Your name" aria-label="Your name" style="text-align:center">
- <input class="field" id="code" autocomplete="off" autocapitalize="characters" placeholder="Access code" aria-label="Access code" style="text-align:center;letter-spacing:.08em">
- <button class="primary" type="submit">Unlock</button>
- <p id="gerr" class="muted" style="margin:0;min-height:20px;color:var(--danger);font-weight:600"></p></form></div>`;
- document.getElementById("gate").addEventListener("submit",async e=>{e.preventDefault();const v=document.getElementById("code").value.trim().toUpperCase();
-  if(v&&await sha(v)===ACCESS_HASH){try{localStorage.setItem("munajat-access",ACCESS_HASH)}catch(e){}const nm=document.getElementById("bname").value.trim();if(nm){S.name=nm;save()}start()}
-  else document.getElementById("gerr").textContent="That code doesn't match. Check your purchase email and try again."})}
-function start(){loadCachedContent();cleanState();
-render();
-syncReminders();
-refreshContent();
+if(!window.firebase){ let ok=null; try{ok=localStorage.getItem("munajat-ok")}catch(e){}
+ if(ok){ loadCachedContent();cleanState();render(); } else { document.getElementById("tabbar").hidden=true; app.innerHTML='<div class="empty" style="padding-top:20vh">Connect to the internet to log in to Munajat.</div>'; } }
+/* ---------- Accounts (Firebase) ---------- */
+const FIREBASE_CONFIG = {apiKey:"AIzaSyCrXi-jIHuZoYy7awz7XPgti2qzxCVPLJw",authDomain:"munajat-a80b4.firebaseapp.com",projectId:"munajat-a80b4",storageBucket:"munajat-a80b4.firebasestorage.app",messagingSenderId:"423224759802",appId:"1:423224759802:web:945a9eddb51c0bf6ed8043"};
+const ADMIN_EMAIL = "ejaz.peace@gmail.com";
+firebase.initializeApp(FIREBASE_CONFIG);
+const auth = firebase.auth(), db = firebase.firestore();
+let USER = null, IS_ADMIN = false, started = false, syncT = null;
+const lc = s => (s || "").trim().toLowerCase();
+function syncNow(){ if(!USER) return; clearTimeout(syncT);
+  syncT = setTimeout(() => db.collection("users").doc(USER.uid).set({ state: JSON.stringify(S), updated: firebase.firestore.FieldValue.serverTimestamp() }).catch(e => console.warn("Sync failed", e)), 1200); }
+const _save = save; save = function(){ _save(); syncNow(); };
+const AUTH_ERR = {
+  "auth/invalid-credential": "Email or password is wrong. Try again, or tap “Forgot password”.",
+  "auth/wrong-password": "Email or password is wrong. Try again, or tap “Forgot password”.",
+  "auth/user-not-found": "No account with this email yet. Tap “Create account”.",
+  "auth/email-already-in-use": "This email already has an account. Tap “Log in” instead.",
+  "auth/weak-password": "Use a password of at least 6 characters.",
+  "auth/invalid-email": "That email doesn't look right. Check it and try again.",
+  "auth/too-many-requests": "Too many tries. Wait a few minutes and try again.",
+  "auth/network-request-failed": "No internet connection. Connect and try again."
+};
+const errMsg = e => AUTH_ERR[e && e.code] || "Something went wrong. Please try again.";
+function authShell(inner){ document.getElementById("tabbar").hidden = true;
+  app.innerHTML = `<div class="stack" style="gap:20px;padding-top:8vh;text-align:center;align-items:center">
+  <div class="avatar" style="width:84px;height:84px"><span style="font-size:34px">م</span></div>
+  <h1 class="big">Munajat</h1>${inner}</div>`; icons(); }
+let authMode = "login";
+function showGate(msg){
+  const m = authMode, create = m === "create", forgot = m === "forgot";
+  authShell(`<p class="muted" style="margin:-8px 0 0;line-height:1.5;max-width:340px">${create ? "Create your account with the email you used to buy Munajat." : forgot ? "Enter your email and we'll send you a link to reset your password." : "Log in with the email you used to buy Munajat."}</p>
+  <form id="gate" class="stack" style="gap:12px;width:100%;max-width:340px;text-align:left">
+   ${create ? `<input class="field" id="bname" autocomplete="given-name" maxlength="30" placeholder="Your name" aria-label="Your name">` : ""}
+   <input class="field" id="em" type="email" autocomplete="email" placeholder="Email" aria-label="Email" required>
+   ${forgot ? "" : `<input class="field" id="pw" type="password" autocomplete="${create ? "new-password" : "current-password"}" placeholder="Password${create ? " (6+ characters)" : ""}" aria-label="Password" required minlength="6">`}
+   <button class="primary" type="submit">${create ? "Create account" : forgot ? "Send reset link" : "Log in"}</button>
+   <p id="gerr" role="alert" style="margin:0;min-height:20px;font-weight:600;font-size:14px;line-height:1.45;color:${msg && msg.ok ? "var(--teal)" : "var(--danger)"}">${msg ? esc(msg.text) : ""}</p>
+  </form>
+  <div class="stack" style="gap:6px;font-weight:700;font-size:14px">
+   ${m !== "login" ? `<button class="pill" style="border:0" data-auth="login">I have an account · Log in</button>` : ""}
+   ${m !== "create" ? `<button class="pill" style="border:0" data-auth="create">New here? Create account</button>` : ""}
+   ${m === "login" ? `<button class="pill" style="border:0;color:var(--muted)" data-auth="forgot">Forgot password?</button>` : ""}
+  </div>`);
+  const f = document.getElementById("gate"), out = document.getElementById("gerr");
+  f.addEventListener("submit", async e => { e.preventDefault();
+    const email = lc(document.getElementById("em").value), btn = f.querySelector("button[type=submit]");
+    btn.disabled = true; out.style.color = "var(--danger)"; out.textContent = "";
+    try {
+      if (forgot) { await auth.sendPasswordResetEmail(email); authMode = "login"; return showGate({ ok: 1, text: "Reset link sent. Check your inbox (and spam), then log in with your new password." }); }
+      const pw = document.getElementById("pw").value;
+      if (create) { const nm = document.getElementById("bname").value.trim(); if (nm) { S.name = nm; _save(); }
+        const cred = await auth.createUserWithEmailAndPassword(email, pw); await cred.user.sendEmailVerification(); }
+      else await auth.signInWithEmailAndPassword(email, pw);
+    } catch (err) { out.textContent = errMsg(err); btn.disabled = false; }
+  });
 }
-document.addEventListener("visibilitychange",()=>{if(!document.hidden&&hasAccess())refreshContent()});
-if(hasAccess())start(); else showGate();
+function showVerify(user){
+  authShell(`<p class="muted" style="margin:-8px 0 0;line-height:1.55;max-width:340px">We sent a link to <b style="color:var(--fg)">${esc(user.email)}</b>. Open it to confirm your email, then come back and tap the button.</p>
+  <div class="stack" style="gap:10px;width:100%;max-width:340px">
+   <button class="primary" id="vdone">I've confirmed my email</button>
+   <button class="ghost" id="vsend">Send the link again</button>
+   <p id="gerr" role="alert" style="margin:0;min-height:20px;font-weight:600;font-size:14px;color:var(--danger)"></p>
+   <button class="pill" style="border:0;color:var(--muted)" data-auth="logout">Use a different email</button></div>`);
+  const out = document.getElementById("gerr");
+  document.getElementById("vdone").onclick = async () => { await user.reload(); if (auth.currentUser.emailVerified) { await auth.currentUser.getIdToken(true); afterLogin(auth.currentUser); } else out.textContent = "Not confirmed yet. Open the link in your email first (check spam too)."; };
+  document.getElementById("vsend").onclick = async () => { try { await user.sendEmailVerification(); out.style.color = "var(--teal)"; out.textContent = "Sent again. Check your inbox."; } catch (e) { out.style.color = "var(--danger)"; out.textContent = errMsg(e); } };
+}
+function showNotBuyer(user){
+  authShell(`<p class="muted" style="margin:-8px 0 0;line-height:1.55;max-width:340px"><b style="color:var(--fg)">${esc(user.email)}</b> isn't on the buyer list yet. If you've just bought Munajat, use the same email you paid with, or message us and we'll add you.</p>
+  <div class="stack" style="gap:10px;width:100%;max-width:340px"><button class="primary" id="nbretry">Check again</button>
+  <button class="ghost" data-auth="logout">Log out</button></div>`);
+  document.getElementById("nbretry").onclick = () => afterLogin(user);
+}
+async function afterLogin(user){
+  if (!user.emailVerified) return showVerify(user);
+  const email = lc(user.email); IS_ADMIN = email === ADMIN_EMAIL;
+  try {
+    if (!IS_ADMIN) { const b = await db.collection("buyers").doc(email).get(); if (!b.exists) return showNotBuyer(user); }
+    USER = user;
+    const snap = await db.collection("users").doc(user.uid).get();
+    if (snap.exists && snap.data().state) { const nm = S.name; S = Object.assign(structuredClone(DEF), JSON.parse(snap.data().state)); if (!S.name && nm) S.name = nm; S.checks = S.checks || {}; S.learned = S.learned || []; _save(); }
+    else { if (!S.name && user.displayName) S.name = user.displayName.split(" ")[0]; save(); }
+    try { localStorage.setItem("munajat-ok", user.uid); } catch (_) {}
+  } catch (e) { console.warn(e);
+    let ok = null; try { ok = localStorage.getItem("munajat-ok"); } catch (_) {}
+    if (ok === user.uid) { USER = user; return start(); }
+    authShell(`<p class="muted" style="max-width:340px;line-height:1.5">Couldn't reach your account. Check your internet connection, then tap Try again.</p><button class="primary" style="max-width:340px" id="retry">Try again</button>`); document.getElementById("retry").onclick = () => afterLogin(user); return; }
+  start();
+}
+function start(){ document.getElementById("tabbar").hidden = false; stack = []; view = { name: "home" };
+  if (!started) { started = true; loadCachedContent(); cleanState(); syncReminders(); }
+  render(); refreshContent(); }
+auth.onAuthStateChanged(user => { if (user) afterLogin(user); else { USER = null; IS_ADMIN = false; started = false; try { localStorage.removeItem("munajat-ok"); } catch (_) {} showGate(); } });
+document.addEventListener("click", e => { const b = e.target.closest("[data-auth]"); if (!b) return; const a = b.dataset.auth;
+  if (a === "logout") { auth.signOut(); authMode = "login"; return; }
+  if (a === "admin") return go("buyers");
+  authMode = a; showGate(); });
+V.buyers = function(){ return `<div class="stack" style="gap:20px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button>
+ <div><h1 class="big">Buyers</h1><p class="muted" style="margin:6px 0 0;line-height:1.5">Only emails on this list can use Munajat. Paste buyers' emails from TagMango, one per line or separated by commas.</p></div>
+ <textarea id="bemails" placeholder="aisha@gmail.com&#10;ahmed@yahoo.com" style="min-height:120px"></textarea>
+ <button class="primary" id="badd">Add to buyer list</button>
+ <p id="bmsg" class="muted" style="margin:0;min-height:20px;font-weight:600"></p>
+ <div class="row between"><h2 class="sec" style="font-size:22px">On the list</h2><span class="muted" id="bcount" style="font-weight:700"></span></div>
+ <input class="field" id="bsearch" type="search" placeholder="Search emails" aria-label="Search emails">
+ <div class="card" id="blist" style="padding:4px 0"><p class="muted" style="padding:16px;margin:0">Loading…</p></div></div>`; };
+async function loadBuyers(){ const box = document.getElementById("blist"); if (!box) return;
+  try { const q = await db.collection("buyers").get(); const all = q.docs.map(d => d.id).sort(); const s = lc((document.getElementById("bsearch") || {}).value);
+    document.getElementById("bcount").textContent = all.length + (all.length === 1 ? " buyer" : " buyers");
+    const list = s ? all.filter(x => x.includes(s)) : all;
+    box.innerHTML = list.length ? list.map(x => `<div class="item"><div class="t" style="font-size:15px;word-break:break-all">${esc(x)}</div><button class="pill" data-rmbuyer="${esc(x)}" style="color:var(--danger)">Remove</button></div>`).join("") : `<p class="muted" style="padding:16px;margin:0">${s ? "No match." : "No buyers yet. Paste emails above."}</p>`;
+  } catch (e) { box.innerHTML = `<p style="padding:16px;margin:0;color:var(--danger)">Couldn't load the list. Check the Firestore rules and your internet.</p>`; } }
+const _render = render; render = function(){ _render();
+  if (view.name === "buyers") {
+    document.getElementById("badd").onclick = async () => { const msg = document.getElementById("bmsg");
+      const ems = [...new Set(document.getElementById("bemails").value.split(/[\s,;]+/).map(lc).filter(x => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x)))];
+      if (!ems.length) { msg.style.color = "var(--danger)"; msg.textContent = "Paste at least one email address."; return; }
+      try { const bt = db.batch(); ems.forEach(x => bt.set(db.collection("buyers").doc(x), { added: firebase.firestore.FieldValue.serverTimestamp() })); await bt.commit();
+        msg.style.color = "var(--teal)"; msg.textContent = `Added ${ems.length} email${ems.length > 1 ? "s" : ""}.`; document.getElementById("bemails").value = ""; loadBuyers(); }
+      catch (e) { msg.style.color = "var(--danger)"; msg.textContent = "Couldn't save. Make sure you're logged in as the admin."; } };
+    document.getElementById("bsearch").oninput = loadBuyers; loadBuyers();
+  }
+};
+document.addEventListener("click", async e => { const b = e.target.closest("[data-rmbuyer]"); if (!b) return; const em = b.dataset.rmbuyer;
+  confirmSheet(`Remove ${em}? They'll be locked out the next time they open Munajat.`, "Remove", async () => { try { await db.collection("buyers").doc(em).delete(); toast("Removed"); loadBuyers(); } catch (err) { toast("Couldn't remove. Try again."); } }); });
+document.addEventListener("visibilitychange", () => { if (!document.hidden && USER) refreshContent(); });
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>

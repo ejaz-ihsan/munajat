@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,600&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:ital,wght@0,500;0,700;1,500&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="icon-192.png">
+<link rel="icon" href="favicon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -385,7 +385,7 @@ let KEYWORDS = {
 /* ---------- Online content ----------
    Duas and categories are loaded from content.json on GitHub Pages, so new duas
    appear without a store update. The copy above is the built-in fallback. */
-const CONTENT_URL = new URL("../content.json", location.href).href;
+const CONTENT_URL = new URL("content.json", location.href).href;
 let CONTENT_VERSION = 5;
 function useContent(c){
  if(!c||!Array.isArray(c.duas)||!Array.isArray(c.categories)||!c.duas.length) return false;

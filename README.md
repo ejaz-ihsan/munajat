@@ -1,6 +1,6 @@
 # Munajat
 
-This site hosts the Munajat web app (`app/`), its landing page (`index.html`), the privacy policy, and `content.json`, which holds every dua, category, checklist and Arabic word.
+This site hosts the Munajat web app (`index.html`), a welcome page (`welcome.html`), the privacy policy, and `content.json`, which holds every dua, category, checklist and Arabic word.
 
 ## Access code
 

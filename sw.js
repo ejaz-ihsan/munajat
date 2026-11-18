@@ -1,8 +1,8 @@
 // Munajat offline support: serves the app from cache when there is no internet,
 // and always tries the network first so updates arrive straight away.
-const CACHE = "munajat-v1";
+const CACHE = "munajat-v2";
 self.addEventListener("install", e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(["./", "index.html", "../content.json", "icon-192.png"])).catch(() => {}));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(["./", "index.html", "content.json", "icon-192.png"])).catch(() => {}));
   self.skipWaiting();
 });
 self.addEventListener("activate", e => {

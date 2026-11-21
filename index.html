@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0b1714">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,600&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:ital,wght@0,500;0,700;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,600&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:ital,wght@0,500;0,700;1,500&family=Shantell+Sans:wght@400;500;600&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="favicon.png">
@@ -758,8 +758,8 @@ const AUTH_ERR = {
 const errMsg = e => AUTH_ERR[e && e.code] || "Something went wrong. Please try again.";
 function authShell(inner){ document.getElementById("tabbar").hidden = true;
   app.innerHTML = `<div class="stack" style="gap:20px;padding-top:8vh;text-align:center;align-items:center">
-  <div class="avatar" style="width:84px;height:84px"><span style="font-size:34px">م</span></div>
-  <h1 class="big">Munajat</h1>${inner}</div>`; icons(); }
+  <img src="icon-192.png" alt="Munajat" width="92" height="92" style="width:92px;height:92px;border-radius:22px;border:1px solid rgba(227,183,104,.35);box-shadow:0 6px 20px rgba(0,0,0,.18)">
+  <div><h1 class="big" style="margin:0">Munajat</h1><p style="margin:6px 0 0;font-family:'Shantell Sans',cursive;font-size:17px;font-weight:500;color:var(--accent)">A Private conversation with Allah</p></div>${inner}</div>`; icons(); }
 let authMode = "login";
 function showGate(msg){
   const m = authMode, create = m === "create", forgot = m === "forgot";

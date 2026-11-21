@@ -453,6 +453,7 @@ function readHeart(text){const T=heartNorm(text);
  CATS.forEach(c=>{if(cats.length<6&&!cats.includes(c.id)&&((KEYWORDS[c.id]||[]).some(k=>T.includes(" "+k))))cats.push(c.id)});
  return {crisis,matched:top.length>0,feel:main,duas:duas.slice(0,6),cats:cats.slice(0,6)}}
 function heartLang(){return S.lang==="hi"?"hi":"en"}
+let GROUPS = [], ALIASES = {};
 let CONTENT_VERSION = 5;
 function useContent(c){
  if(!c||!Array.isArray(c.duas)||!Array.isArray(c.categories)||!c.duas.length) return false;
@@ -464,6 +465,7 @@ function useContent(c){
  GUIDE=Object.fromEntries(c.categories.map(x=>{const m=o=>({a:o.action,d:o.detail,ref:o.ref||"",url:o.url||""});return [x.id,{q:(x.quran||[]).map(m),h:(x.hadith||[]).map(m)}]}));
  if(c.names) NAMES=c.names; if(c.salawat) SALAWAT=c.salawat; if(c.opening) OPENING=c.opening;
  KEYWORDS=Object.fromEntries(c.categories.map(x=>[x.id,x.keywords||[]]));
+ ALIASES=c.aliases||{}; GROUPS=(c.groups||[]).map(g=>({id:g.id,name:g.name,icon:g.icon||"folder",color:g.color||"#e3b768",children:(g.children||[]).filter(id=>c.categories.some(x=>x.id===id))})).filter(g=>g.children.length);
  CAT=Object.fromEntries(CATS.map(x=>[x.id,x]));
  CAT._saved={id:"_saved",name:"Saved Duas",icon:"bookmark",color:"#a78bfa"};
  CAT._heart={id:"_heart",name:"For your heart",icon:"heart",color:"#e3b768"};
@@ -474,7 +476,7 @@ function useContent(c){
  CONTENT_VERSION=c.version||0;
  return true;
 }
-function cleanState(){S.goals=S.goals.filter(g=>CAT[g]);S.saved=S.saved.filter(id=>DUA[id])}
+function cleanState(){S.goals=[...new Set(S.goals.map(g=>ALIASES[g]||g))].filter(g=>CAT[g]);S.saved=S.saved.filter(id=>DUA[id])}
 function loadCachedContent(){try{const c=JSON.parse(localStorage.getItem("munajat-content")||"null");if(c)useContent(c)}catch(e){}}
 async function refreshContent(){
  if(CONTENT_URL.includes("YOUR-GITHUB-USERNAME")) return;
@@ -549,7 +551,7 @@ browseBody(){const q=(view.q||"").trim().toLowerCase();
  const cats=q?CATS.filter(c=>c.name.toLowerCase().includes(q)||duasFor(c.id).some(id=>(DUA[id].en+" "+DUA[id].t).toLowerCase().includes(q))):CATS;
  return `<label class="search">${ic("search")}<input id="q" type="search" placeholder="Search a topic or word" value="${esc(view.q||"")}" autocomplete="off">
  ${q?`<button class="iconbtn" data-act="clearq" aria-label="Clear" style="width:34px;height:34px;background:var(--accent);color:var(--accent-ink)">${ic("x")}</button>`:""}</label>
- <div class="grid" id="catgrid">${cats.map(catBtn).join("")||`<div class="empty" style="grid-column:1/-1">Nothing matches “${esc(q)}”.</div>`}</div>
+ <div class="grid" id="catgrid">${(q?cats.map(catBtn):(()=>{const out=[],seen={};cats.forEach(c=>{const g=GROUPS.find(g=>g.children.includes(c.id));if(!g)return out.push(catBtn(c));if(seen[g.id])return;seen[g.id]=1;out.push(groupBtn(g))});return out})()).join("")||`<div class="empty" style="grid-column:1/-1">Nothing matches “${esc(q)}”.</div>`}</div>
  <button class="find" data-mode="find">${ic("pen-line")}Describe what you need</button>`},
 findBody(){const r=view.found,LS=S.lang==="both"?["en","hi"]:[S.lang==="hi"?"hi":"en"],L=LS[0];
  const two=(o,tag="p",st="")=>LS.map((l,k)=>`<${tag} lang="${l==="hi"?"hi-Latn":"en"}" style="${st}${k?"margin-top:8px;color:var(--muted);":""}">${esc(o[l]||o.en)}</${tag}>`).join("");
@@ -777,6 +779,14 @@ document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",ev
 CAT._saved={id:"_saved",name:"Saved Duas",icon:"bookmark",color:"#a78bfa"};
 CAT._heart={id:"_heart",name:"For your heart",icon:"heart",color:"#e3b768"};
 
+/* ---------- Category groups (e.g. Finance, Offspring) ---------- */
+function groupBtn(g){return `<button class="cat" data-group="${g.id}"><div class="ic" style="background:color-mix(in srgb,${g.color} 16%,var(--surface));color:${g.color}">${ic(g.icon)}</div><span>${esc(g.name)}<small style="display:block;font-size:12px;font-weight:600;color:var(--muted);margin-top:2px">${g.children.map(id=>CAT[id]?CAT[id].name:"").filter(Boolean).join(" · ")}</small></span>${ic("chevron-right","class='chev'")}</button>`}
+V.group=function(){const g=GROUPS.find(x=>x.id===view.group);if(!g)return `<div class="empty">This topic isn't available.</div>`;
+ return `<div class="stack" style="gap:20px"><div class="row between"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button></div>
+ <div class="row">${tile(g)}<div><div class="eyebrow">${g.children.length} topics</div><h1 class="sec">${esc(g.name)}</h1></div></div>
+ <div class="grid">${g.children.map(id=>CAT[id]).filter(Boolean).map(c=>`<button class="cat" data-cat="${c.id}"><div class="ic" style="background:color-mix(in srgb,${c.color} 16%,var(--surface));color:${c.color}">${ic(c.icon)}</div><span>${esc(c.name)}<small style="display:block;font-size:12px;font-weight:600;color:var(--muted);margin-top:2px">${duasFor(c.id).length} duas</small></span>${ic("chevron-right","class='chev'")}</button>`).join("")}</div></div>`};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-group]");if(b){e.stopPropagation();go("group",{group:b.dataset.group})}},true);
+
 /* ---------- Sheets ---------- */
 const layer=document.getElementById("layer");
 function sheet(html,bind){layer.innerHTML=`<div class="scrim"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div></div>`;icons();
@@ -961,7 +971,7 @@ window.helpExtra = function(){ if (!USER) return "";
   <div id="mytk" class="stack" style="gap:10px"><p class="muted" style="margin:0">Loading…</p></div>`; };
 
 function tkCard(t, admin){ const x = t.data(), st = TK_ST[x.status] ? x.status : "open", fresh = !admin && x.seen === false;
-  const topic = x.topic && CAT[x.topic] ? CAT[x.topic] : null;
+  const tid = ALIASES[x.topic] || x.topic, topic = tid && CAT[tid] ? CAT[tid] : null;
   return `<div class="tk ${fresh ? "unseen" : ""}"><div class="top">${fresh ? `<span class="new">New update</span>` : ""}<span class="tag">${esc(TK_TYPES[x.type] || "Feedback")}</span><span class="st ${st}">${(admin ? TK_ST_ADMIN : TK_ST)[st]}</span><span>${esc(tkDate(x.created))}</span></div>
   ${admin ? `<div class="who"><div class="av">${esc((x.name || x.email || "?")[0].toUpperCase())}</div><div style="min-width:0"><div style="font-weight:800">${esc(x.name || "Buyer")}</div><a href="mailto:${esc(x.email || "")}">${esc(x.email || "")}</a></div></div>` : ""}
   <p class="msg">${esc(x.message || "")}</p>

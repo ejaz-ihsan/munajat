@@ -1,5 +1,5 @@
 {
- "version": 6,
+ "version": 7,
  "updated": "2026-11-21",
  "notes": "Munajat content. Edit this file to add duas or categories. Raise 'version' by 1 every time you change it.",
  "daily": [
@@ -47,7 +47,7 @@
  "categories": [
   {
    "id": "exams",
-   "name": "Exams",
+   "name": "Studies & Knowledge",
    "icon": "graduation-cap",
    "color": "#8b5cf6",
    "keywords": [
@@ -58,12 +58,18 @@
     "college",
     "university",
     "result",
-    "paper"
+    "paper",
+    "knowledge",
+    "learn",
+    "understand",
+    "quran",
+    "memor"
    ],
    "names": [
     "alim",
     "fattah",
-    "hakim"
+    "hakim",
+    "khabir"
    ],
    "salawat": "short",
    "quran": [
@@ -114,6 +120,54 @@
      },
      "ref": "Surah Aal-Imran 3:159",
      "url": "https://quran.com/3/159"
+    },
+    {
+     "action": {
+      "en": "Ask people who know",
+      "hi": "Jaanne waalon se poochho"
+     },
+     "detail": {
+      "en": "Ask the people of knowledge if you do not know.",
+      "hi": "Agar tum nahi jaante toh ilm waalon se poochh lo."
+     },
+     "ref": "Surah An-Nahl 16:43",
+     "url": "https://quran.com/16/43"
+    },
+    {
+     "action": {
+      "en": "Value learning",
+      "hi": "Ilm ki qadr karo"
+     },
+     "detail": {
+      "en": "Are those who know equal to those who do not?",
+      "hi": "Kya jaanne wale aur na jaanne wale barabar ho sakte hain?"
+     },
+     "ref": "Surah Az-Zumar 39:9",
+     "url": "https://quran.com/39/9"
+    },
+    {
+     "action": {
+      "en": "Know that knowledge raises you",
+      "hi": "Jaano ki ilm darje buland karta hai"
+     },
+     "detail": {
+      "en": "Allah raises in rank those who believe and those given knowledge.",
+      "hi": "Allah imaan waalon aur ilm waalon ke darje buland karta hai."
+     },
+     "ref": "Surah Al-Mujadila 58:11",
+     "url": "https://quran.com/58/11"
+    },
+    {
+     "action": {
+      "en": "Reflect on the Qur'an",
+      "hi": "Qur'an par ghaur karo"
+     },
+     "detail": {
+      "en": "Do they not reflect on the Qur'an?",
+      "hi": "Kya woh Qur'an par ghaur nahi karte?"
+     },
+     "ref": "Surah Muhammad 47:24",
+     "url": "https://quran.com/47/24"
     }
    ],
    "hadith": [
@@ -164,6 +218,42 @@
      },
      "ref": "Sahih al-Bukhari 6412",
      "url": "https://sunnah.com/bukhari:6412"
+    },
+    {
+     "action": {
+      "en": "Learn the Qur'an and teach it",
+      "hi": "Qur'an seekho aur sikhaao"
+     },
+     "detail": {
+      "en": "The best of you are those who learn the Qur'an and teach it.",
+      "hi": "Tum mein behtar woh hai jo Qur'an seekhe aur sikhaaye."
+     },
+     "ref": "Sahih al-Bukhari 5027",
+     "url": "https://sunnah.com/bukhari:5027"
+    },
+    {
+     "action": {
+      "en": "Leave knowledge that lasts",
+      "hi": "Aisa ilm chhodo jo baad mein bhi kaam aaye"
+     },
+     "detail": {
+      "en": "When a person dies, their deeds stop except three, including knowledge that benefits others.",
+      "hi": "Insaan ke marne par amal ruk jaate hain siwaye teen ke, unmein se ek faayda dene wala ilm hai."
+     },
+     "ref": "Sahih Muslim 1631",
+     "url": "https://sunnah.com/muslim:1631"
+    },
+    {
+     "action": {
+      "en": "Ask Allah for understanding of the deen",
+      "hi": "Allah se deen ki samajh maango"
+     },
+     "detail": {
+      "en": "When Allah wants good for someone, He gives them understanding of the religion.",
+      "hi": "Allah jiske saath bhalaai chahta hai, use deen ki samajh deta hai."
+     },
+     "ref": "Sahih al-Bukhari 71",
+     "url": "https://sunnah.com/bukhari:71"
     }
    ]
   },
@@ -448,125 +538,6 @@
    ]
   },
   {
-   "id": "knowledge",
-   "name": "Knowledge",
-   "icon": "book-open",
-   "color": "#3b82f6",
-   "keywords": [
-    "knowledge",
-    "learn",
-    "understand",
-    "quran",
-    "memor"
-   ],
-   "names": [
-    "alim",
-    "khabir",
-    "hakim"
-   ],
-   "salawat": "short",
-   "quran": [
-    {
-     "action": {
-      "en": "Ask people who know",
-      "hi": "Jaanne waalon se poochho"
-     },
-     "detail": {
-      "en": "Ask the people of knowledge if you do not know.",
-      "hi": "Agar tum nahi jaante toh ilm waalon se poochh lo."
-     },
-     "ref": "Surah An-Nahl 16:43",
-     "url": "https://quran.com/16/43"
-    },
-    {
-     "action": {
-      "en": "Value learning",
-      "hi": "Ilm ki qadr karo"
-     },
-     "detail": {
-      "en": "Are those who know equal to those who do not?",
-      "hi": "Kya jaanne wale aur na jaanne wale barabar ho sakte hain?"
-     },
-     "ref": "Surah Az-Zumar 39:9",
-     "url": "https://quran.com/39/9"
-    },
-    {
-     "action": {
-      "en": "Know that knowledge raises you",
-      "hi": "Jaano ki ilm darje buland karta hai"
-     },
-     "detail": {
-      "en": "Allah raises in rank those who believe and those given knowledge.",
-      "hi": "Allah imaan waalon aur ilm waalon ke darje buland karta hai."
-     },
-     "ref": "Surah Al-Mujadila 58:11",
-     "url": "https://quran.com/58/11"
-    },
-    {
-     "action": {
-      "en": "Reflect on the Qur'an",
-      "hi": "Qur'an par ghaur karo"
-     },
-     "detail": {
-      "en": "Do they not reflect on the Qur'an?",
-      "hi": "Kya woh Qur'an par ghaur nahi karte?"
-     },
-     "ref": "Surah Muhammad 47:24",
-     "url": "https://quran.com/47/24"
-    }
-   ],
-   "hadith": [
-    {
-     "action": {
-      "en": "Walk the path of learning",
-      "hi": "Ilm ki raah par chalo"
-     },
-     "detail": {
-      "en": "Whoever takes a path seeking knowledge, Allah eases their path to Paradise.",
-      "hi": "Jo ilm ki raah chale, Allah uske liye jannat ki raah aasaan kar deta hai."
-     },
-     "ref": "Sahih Muslim 2699",
-     "url": "https://sunnah.com/muslim:2699"
-    },
-    {
-     "action": {
-      "en": "Learn the Qur'an and teach it",
-      "hi": "Qur'an seekho aur sikhaao"
-     },
-     "detail": {
-      "en": "The best of you are those who learn the Qur'an and teach it.",
-      "hi": "Tum mein behtar woh hai jo Qur'an seekhe aur sikhaaye."
-     },
-     "ref": "Sahih al-Bukhari 5027",
-     "url": "https://sunnah.com/bukhari:5027"
-    },
-    {
-     "action": {
-      "en": "Leave knowledge that lasts",
-      "hi": "Aisa ilm chhodo jo baad mein bhi kaam aaye"
-     },
-     "detail": {
-      "en": "When a person dies, their deeds stop except three, including knowledge that benefits others.",
-      "hi": "Insaan ke marne par amal ruk jaate hain siwaye teen ke, unmein se ek faayda dene wala ilm hai."
-     },
-     "ref": "Sahih Muslim 1631",
-     "url": "https://sunnah.com/muslim:1631"
-    },
-    {
-     "action": {
-      "en": "Ask Allah for understanding of the deen",
-      "hi": "Allah se deen ki samajh maango"
-     },
-     "detail": {
-      "en": "When Allah wants good for someone, He gives them understanding of the religion.",
-      "hi": "Allah jiske saath bhalaai chahta hai, use deen ki samajh deta hai."
-     },
-     "ref": "Sahih al-Bukhari 71",
-     "url": "https://sunnah.com/bukhari:71"
-    }
-   ]
-  },
-  {
    "id": "daily",
    "name": "Daily Duas",
    "icon": "calendar-days",
@@ -819,7 +790,9 @@
    "names": [
     "hafiz",
     "muhaymin",
-    "mumin"
+    "mumin",
+    "waliyy",
+    "raqib"
    ],
    "salawat": "abd",
    "quran": [
@@ -870,6 +843,54 @@
      },
      "ref": "Surah An-Nahl 16:99",
      "url": "https://quran.com/16/99"
+    },
+    {
+     "action": {
+      "en": "Hand your safety to the best Guardian",
+      "hi": "Apni hifaazat behtareen Muhaafiz ko saunpo"
+     },
+     "detail": {
+      "en": "Allah is the best guardian, and He is the Most Merciful.",
+      "hi": "Allah sabse behtar hifaazat karne wala hai, aur sabse zyada reham karne wala."
+     },
+     "ref": "Surah Yusuf 12:64",
+     "url": "https://quran.com/12/64"
+    },
+    {
+     "action": {
+      "en": "Remember the angels guarding you",
+      "hi": "Hifaazat karne wale farishton ko yaad rakho"
+     },
+     "detail": {
+      "en": "Each person has angels before and behind them, guarding them by Allah's command.",
+      "hi": "Har insaan ke aage peeche farishte hain jo Allah ke hukm se uski hifaazat karte hain."
+     },
+     "ref": "Surah Ar-Ra‘d 13:11",
+     "url": "https://quran.com/13/11"
+    },
+    {
+     "action": {
+      "en": "Recite Ayat al-Kursi",
+      "hi": "Ayat-ul-Kursi padho"
+     },
+     "detail": {
+      "en": "Guarding the heavens and the earth does not tire Him.",
+      "hi": "Aasmaan aur zameen ki hifaazat use nahi thakaati."
+     },
+     "ref": "Surah Al-Baqarah 2:255",
+     "url": "https://quran.com/2/255"
+    },
+    {
+     "action": {
+      "en": "Call Him in distress",
+      "hi": "Pareshaani mein usko pukaaro"
+     },
+     "detail": {
+      "en": "Who answers the distressed when they call, and removes the harm?",
+      "hi": "Kaun hai jo pareshaan ki pukaar sunta hai jab woh pukaare, aur takleef door karta hai?"
+     },
+     "ref": "Surah An-Naml 27:62",
+     "url": "https://quran.com/27/62"
     }
    ],
    "hadith": [
@@ -920,6 +941,54 @@
      },
      "ref": "Sahih Muslim 2018",
      "url": "https://sunnah.com/muslim:2018"
+    },
+    {
+     "action": {
+      "en": "Guard Allah's limits",
+      "hi": "Allah ki hudood ki hifaazat karo"
+     },
+     "detail": {
+      "en": "Be mindful of Allah, and He will protect you.",
+      "hi": "Allah ka khayaal rakho, woh tumhari hifaazat karega."
+     },
+     "ref": "Jami‘ at-Tirmidhi 2516",
+     "url": "https://sunnah.com/tirmidhi:2516"
+    },
+    {
+     "action": {
+      "en": "Say the morning and evening protection",
+      "hi": "Subah shaam hifaazat ki dua padho"
+     },
+     "detail": {
+      "en": "Bismillahil-ladhi la yadurru… three times: nothing will harm you.",
+      "hi": "Bismillahil-lazi la yazurru… teen baar: koi cheez nuqsaan nahi pahunchaayegi."
+     },
+     "ref": "Sunan Abi Dawud 5088",
+     "url": "https://sunnah.com/abudawud:5088"
+    },
+    {
+     "action": {
+      "en": "Say the leaving-home dua",
+      "hi": "Ghar se nikalne ki dua padho"
+     },
+     "detail": {
+      "en": "Whoever says it leaving home is told: you are guided, sufficed and protected.",
+      "hi": "Jo ghar se nikalte waqt yeh padhe, use kaha jaata hai: hidaayat mili, kaafi hua, mehfooz hua."
+     },
+     "ref": "Sunan Abi Dawud 5095",
+     "url": "https://sunnah.com/abudawud:5095"
+    },
+    {
+     "action": {
+      "en": "Pray Fajr",
+      "hi": "Fajr padho"
+     },
+     "detail": {
+      "en": "Whoever prays Fajr is under the protection of Allah.",
+      "hi": "Jo Fajr padhta hai woh Allah ki hifaazat mein hai."
+     },
+     "ref": "Sahih Muslim 657",
+     "url": "https://sunnah.com/muslim:657"
     }
    ]
   },
@@ -1885,124 +1954,6 @@
    ]
   },
   {
-   "id": "contentment",
-   "name": "Contentment",
-   "icon": "star",
-   "color": "#22d3ee",
-   "keywords": [
-    "content",
-    "enough",
-    "satisf",
-    "peace"
-   ],
-   "names": [
-    "ghani",
-    "karim",
-    "wasi"
-   ],
-   "salawat": "barik",
-   "quran": [
-    {
-     "action": {
-      "en": "Stop wishing for others' blessings",
-      "hi": "Doosron ki nematon ki tamanna chhodo"
-     },
-     "detail": {
-      "en": "Do not wish for what Allah has given some of you over others; ask Allah of His bounty.",
-      "hi": "Us cheez ki tamanna na karo jo Allah ne doosron ko di; Allah se uska fazl maango."
-     },
-     "ref": "Surah An-Nisa 4:32",
-     "url": "https://quran.com/4/32"
-    },
-    {
-     "action": {
-      "en": "Be grateful to receive more",
-      "hi": "Shukr karo, aur milega"
-     },
-     "detail": {
-      "en": "If you are grateful, I will surely increase you.",
-      "hi": "Agar shukr karoge toh main aur zyada doonga."
-     },
-     "ref": "Surah Ibrahim 14:7",
-     "url": "https://quran.com/14/7"
-    },
-    {
-     "action": {
-      "en": "Don't stare at others' worldly shine",
-      "hi": "Doosron ki duniyavi chamak ko mat taako"
-     },
-     "detail": {
-      "en": "Do not extend your eyes toward the enjoyment We gave others; your Lord's provision is better and lasting.",
-      "hi": "Apni nazrein us saamaan ki taraf na phailao jo humne doosron ko diya; tumhare Rab ka rizq behtar aur baaqi rehne wala hai."
-     },
-     "ref": "Surah Ta-Ha 20:131",
-     "url": "https://quran.com/20/131"
-    },
-    {
-     "action": {
-      "en": "Hold the world lightly",
-      "hi": "Duniya ko halka pakdo"
-     },
-     "detail": {
-      "en": "So that you do not despair over what you missed, nor exult over what you were given.",
-      "hi": "Taaki jo chhoot jaaye us par gham na karo, aur jo mile us par itraao nahi."
-     },
-     "ref": "Surah Al-Hadid 57:23",
-     "url": "https://quran.com/57/23"
-    }
-   ],
-   "hadith": [
-    {
-     "action": {
-      "en": "Seek richness of the heart",
-      "hi": "Dil ki ameeri chaaho"
-     },
-     "detail": {
-      "en": "Richness is not having many possessions; true richness is richness of the soul.",
-      "hi": "Ameeri maal ki kasrat ka naam nahi, asal ameeri dil ki ameeri hai."
-     },
-     "ref": "Sahih al-Bukhari 6446",
-     "url": "https://sunnah.com/bukhari:6446"
-    },
-    {
-     "action": {
-      "en": "Be content with enough",
-      "hi": "Kaafi par raazi raho"
-     },
-     "detail": {
-      "en": "Successful is the one who accepts Islam, is given enough, and is made content by Allah.",
-      "hi": "Kaamyaab hai woh jo Islam laaya, use kaafi rizq mila, aur Allah ne use qanaa‘at di."
-     },
-     "ref": "Sahih Muslim 1054",
-     "url": "https://sunnah.com/muslim:1054"
-    },
-    {
-     "action": {
-      "en": "Look at those who have less",
-      "hi": "Kam waalon ko dekho"
-     },
-     "detail": {
-      "en": "Look at those below you, not above you, so you don't belittle Allah's blessings.",
-      "hi": "Apne se neeche waalon ko dekho, upar waalon ko nahi."
-     },
-     "ref": "Sahih Muslim 2963",
-     "url": "https://sunnah.com/muslim:2963"
-    },
-    {
-     "action": {
-      "en": "Count today's safety, health and food",
-      "hi": "Aaj ki hifaazat, sehat aur khaana gino"
-     },
-     "detail": {
-      "en": "Whoever wakes safe, healthy and with food for the day, it is as if the whole world was given to them.",
-      "hi": "Jo subah mehfooz, tandurust aur din bhar ke khaane ke saath uthe, goya use poori duniya mil gayi."
-     },
-     "ref": "Jami‘ at-Tirmidhi 2346",
-     "url": "https://sunnah.com/tirmidhi:2346"
-    }
-   ]
-  },
-  {
    "id": "parents",
    "name": "My parents",
    "icon": "users",
@@ -2125,7 +2076,7 @@
   },
   {
    "id": "children",
-   "name": "Children",
+   "name": "Pious Child",
    "icon": "users",
    "color": "#fb923c",
    "keywords": [
@@ -2243,7 +2194,7 @@
   },
   {
    "id": "baby",
-   "name": "Having a baby",
+   "name": "Having a Baby",
    "icon": "baby",
    "color": "#fb923c",
    "keywords": [
@@ -2844,12 +2795,19 @@
     "closer",
     "connect",
     "love allah",
-    "distant"
+    "distant",
+    "faith",
+    "iman",
+    "weak",
+    "doubt",
+    "religion"
    ],
    "names": [
     "wadud",
     "mujib",
-    "nur"
+    "nur",
+    "mumin",
+    "hadi"
    ],
    "salawat": "ummi",
    "quran": [
@@ -2900,79 +2858,7 @@
      },
      "ref": "Surah Qaf 50:16",
      "url": "https://quran.com/50/16"
-    }
-   ],
-   "hadith": [
-    {
-     "action": {
-      "en": "Make dua in sujood",
-      "hi": "Sajde mein dua karo"
-     },
-     "detail": {
-      "en": "The closest a servant is to his Lord is in prostration, so make much dua there.",
-      "hi": "Banda apne Rab ke sabse qareeb sajde mein hota hai, toh wahan kasrat se dua karo."
-     },
-     "ref": "Sahih Muslim 482",
-     "url": "https://sunnah.com/muslim:482"
     },
-    {
-     "action": {
-      "en": "Add voluntary deeds",
-      "hi": "Nafl amal badhao"
-     },
-     "detail": {
-      "en": "My servant keeps drawing near to Me with voluntary deeds until I love him.",
-      "hi": "Mera banda nafl amal se mere qareeb hota rehta hai yahan tak ki main usse mohabbat karne lagta hoon."
-     },
-     "ref": "Sahih al-Bukhari 6502",
-     "url": "https://sunnah.com/bukhari:6502"
-    },
-    {
-     "action": {
-      "en": "Take one step; He comes running",
-      "hi": "Ek qadam badhao, woh daud kar aata hai"
-     },
-     "detail": {
-      "en": "If he comes to Me walking, I go to him running.",
-      "hi": "Agar woh mere paas chal kar aaye, main uske paas daud kar jaata hoon."
-     },
-     "ref": "Sahih al-Bukhari 7405",
-     "url": "https://sunnah.com/bukhari:7405"
-    },
-    {
-     "action": {
-      "en": "Wake in the last third of the night",
-      "hi": "Raat ke aakhri hisse mein jaago"
-     },
-     "detail": {
-      "en": "Our Lord descends in the last third of the night: who is calling Me, that I may answer?",
-      "hi": "Humara Rab raat ke aakhri tihaai hisse mein farmaata hai: kaun mujhe pukaarta hai ki main jawaab doon?"
-     },
-     "ref": "Sahih al-Bukhari 1145",
-     "url": "https://sunnah.com/bukhari:1145"
-    }
-   ]
-  },
-  {
-   "id": "faith",
-   "name": "Stronger faith",
-   "icon": "sunrise",
-   "color": "#fbbf24",
-   "keywords": [
-    "faith",
-    "iman",
-    "weak",
-    "doubt",
-    "religion"
-   ],
-   "names": [
-    "mumin",
-    "hadi",
-    "nur",
-    "haqq"
-   ],
-   "salawat": "ummi",
-   "quran": [
     {
      "action": {
       "en": "Let the Qur'an increase your faith",
@@ -3023,6 +2909,54 @@
     }
    ],
    "hadith": [
+    {
+     "action": {
+      "en": "Make dua in sujood",
+      "hi": "Sajde mein dua karo"
+     },
+     "detail": {
+      "en": "The closest a servant is to his Lord is in prostration, so make much dua there.",
+      "hi": "Banda apne Rab ke sabse qareeb sajde mein hota hai, toh wahan kasrat se dua karo."
+     },
+     "ref": "Sahih Muslim 482",
+     "url": "https://sunnah.com/muslim:482"
+    },
+    {
+     "action": {
+      "en": "Add voluntary deeds",
+      "hi": "Nafl amal badhao"
+     },
+     "detail": {
+      "en": "My servant keeps drawing near to Me with voluntary deeds until I love him.",
+      "hi": "Mera banda nafl amal se mere qareeb hota rehta hai yahan tak ki main usse mohabbat karne lagta hoon."
+     },
+     "ref": "Sahih al-Bukhari 6502",
+     "url": "https://sunnah.com/bukhari:6502"
+    },
+    {
+     "action": {
+      "en": "Take one step; He comes running",
+      "hi": "Ek qadam badhao, woh daud kar aata hai"
+     },
+     "detail": {
+      "en": "If he comes to Me walking, I go to him running.",
+      "hi": "Agar woh mere paas chal kar aaye, main uske paas daud kar jaata hoon."
+     },
+     "ref": "Sahih al-Bukhari 7405",
+     "url": "https://sunnah.com/bukhari:7405"
+    },
+    {
+     "action": {
+      "en": "Wake in the last third of the night",
+      "hi": "Raat ke aakhri hisse mein jaago"
+     },
+     "detail": {
+      "en": "Our Lord descends in the last third of the night: who is calling Me, that I may answer?",
+      "hi": "Humara Rab raat ke aakhri tihaai hisse mein farmaata hai: kaun mujhe pukaarta hai ki main jawaab doon?"
+     },
+     "ref": "Sahih al-Bukhari 1145",
+     "url": "https://sunnah.com/bukhari:1145"
+    },
     {
      "action": {
       "en": "Believe, then be steadfast",
@@ -3193,19 +3127,25 @@
   },
   {
    "id": "gratitude",
-   "name": "Gratitude",
+   "name": "Gratitude & Contentment",
    "icon": "smile",
    "color": "#facc15",
    "keywords": [
     "grate",
     "thank",
     "shukr",
-    "bless"
+    "bless",
+    "content",
+    "enough",
+    "satisf",
+    "peace"
    ],
    "names": [
     "shakur",
     "hamid",
-    "karim"
+    "karim",
+    "ghani",
+    "wasi"
    ],
    "salawat": "barik",
    "quran": [
@@ -3256,6 +3196,42 @@
      },
      "ref": "Surah Saba 34:13",
      "url": "https://quran.com/34/13"
+    },
+    {
+     "action": {
+      "en": "Stop wishing for others' blessings",
+      "hi": "Doosron ki nematon ki tamanna chhodo"
+     },
+     "detail": {
+      "en": "Do not wish for what Allah has given some of you over others; ask Allah of His bounty.",
+      "hi": "Us cheez ki tamanna na karo jo Allah ne doosron ko di; Allah se uska fazl maango."
+     },
+     "ref": "Surah An-Nisa 4:32",
+     "url": "https://quran.com/4/32"
+    },
+    {
+     "action": {
+      "en": "Don't stare at others' worldly shine",
+      "hi": "Doosron ki duniyavi chamak ko mat taako"
+     },
+     "detail": {
+      "en": "Do not extend your eyes toward the enjoyment We gave others; your Lord's provision is better and lasting.",
+      "hi": "Apni nazrein us saamaan ki taraf na phailao jo humne doosron ko diya; tumhare Rab ka rizq behtar aur baaqi rehne wala hai."
+     },
+     "ref": "Surah Ta-Ha 20:131",
+     "url": "https://quran.com/20/131"
+    },
+    {
+     "action": {
+      "en": "Hold the world lightly",
+      "hi": "Duniya ko halka pakdo"
+     },
+     "detail": {
+      "en": "So that you do not despair over what you missed, nor exult over what you were given.",
+      "hi": "Taaki jo chhoot jaaye us par gham na karo, aur jo mile us par itraao nahi."
+     },
+     "ref": "Surah Al-Hadid 57:23",
+     "url": "https://quran.com/57/23"
     }
    ],
    "hadith": [
@@ -3306,6 +3282,54 @@
      },
      "ref": "Sahih Muslim 2999",
      "url": "https://sunnah.com/muslim:2999"
+    },
+    {
+     "action": {
+      "en": "Seek richness of the heart",
+      "hi": "Dil ki ameeri chaaho"
+     },
+     "detail": {
+      "en": "Richness is not having many possessions; true richness is richness of the soul.",
+      "hi": "Ameeri maal ki kasrat ka naam nahi, asal ameeri dil ki ameeri hai."
+     },
+     "ref": "Sahih al-Bukhari 6446",
+     "url": "https://sunnah.com/bukhari:6446"
+    },
+    {
+     "action": {
+      "en": "Be content with enough",
+      "hi": "Kaafi par raazi raho"
+     },
+     "detail": {
+      "en": "Successful is the one who accepts Islam, is given enough, and is made content by Allah.",
+      "hi": "Kaamyaab hai woh jo Islam laaya, use kaafi rizq mila, aur Allah ne use qanaa‘at di."
+     },
+     "ref": "Sahih Muslim 1054",
+     "url": "https://sunnah.com/muslim:1054"
+    },
+    {
+     "action": {
+      "en": "Look at those who have less",
+      "hi": "Kam waalon ko dekho"
+     },
+     "detail": {
+      "en": "Look at those below you, not above you, so you don't belittle Allah's blessings.",
+      "hi": "Apne se neeche waalon ko dekho, upar waalon ko nahi."
+     },
+     "ref": "Sahih Muslim 2963",
+     "url": "https://sunnah.com/muslim:2963"
+    },
+    {
+     "action": {
+      "en": "Count today's safety, health and food",
+      "hi": "Aaj ki hifaazat, sehat aur khaana gino"
+     },
+     "detail": {
+      "en": "Whoever wakes safe, healthy and with food for the day, it is as if the whole world was given to them.",
+      "hi": "Jo subah mehfooz, tandurust aur din bhar ke khaane ke saath uthe, goya use poori duniya mil gayi."
+     },
+     "ref": "Jami‘ at-Tirmidhi 2346",
+     "url": "https://sunnah.com/tirmidhi:2346"
     }
    ]
   },
@@ -3426,119 +3450,6 @@
      },
      "ref": "Jami‘ at-Tirmidhi 2822",
      "url": "https://sunnah.com/tirmidhi:2822"
-    }
-   ]
-  },
-  {
-   "id": "protection",
-   "name": "Protection",
-   "icon": "shield",
-   "color": "#10b981",
-   "keywords": [],
-   "names": [
-    "hafiz",
-    "waliyy",
-    "raqib"
-   ],
-   "salawat": "abd",
-   "quran": [
-    {
-     "action": {
-      "en": "Hand your safety to the best Guardian",
-      "hi": "Apni hifaazat behtareen Muhaafiz ko saunpo"
-     },
-     "detail": {
-      "en": "Allah is the best guardian, and He is the Most Merciful.",
-      "hi": "Allah sabse behtar hifaazat karne wala hai, aur sabse zyada reham karne wala."
-     },
-     "ref": "Surah Yusuf 12:64",
-     "url": "https://quran.com/12/64"
-    },
-    {
-     "action": {
-      "en": "Remember the angels guarding you",
-      "hi": "Hifaazat karne wale farishton ko yaad rakho"
-     },
-     "detail": {
-      "en": "Each person has angels before and behind them, guarding them by Allah's command.",
-      "hi": "Har insaan ke aage peeche farishte hain jo Allah ke hukm se uski hifaazat karte hain."
-     },
-     "ref": "Surah Ar-Ra‘d 13:11",
-     "url": "https://quran.com/13/11"
-    },
-    {
-     "action": {
-      "en": "Recite Ayat al-Kursi",
-      "hi": "Ayat-ul-Kursi padho"
-     },
-     "detail": {
-      "en": "Guarding the heavens and the earth does not tire Him.",
-      "hi": "Aasmaan aur zameen ki hifaazat use nahi thakaati."
-     },
-     "ref": "Surah Al-Baqarah 2:255",
-     "url": "https://quran.com/2/255"
-    },
-    {
-     "action": {
-      "en": "Call Him in distress",
-      "hi": "Pareshaani mein usko pukaaro"
-     },
-     "detail": {
-      "en": "Who answers the distressed when they call, and removes the harm?",
-      "hi": "Kaun hai jo pareshaan ki pukaar sunta hai jab woh pukaare, aur takleef door karta hai?"
-     },
-     "ref": "Surah An-Naml 27:62",
-     "url": "https://quran.com/27/62"
-    }
-   ],
-   "hadith": [
-    {
-     "action": {
-      "en": "Guard Allah's limits",
-      "hi": "Allah ki hudood ki hifaazat karo"
-     },
-     "detail": {
-      "en": "Be mindful of Allah, and He will protect you.",
-      "hi": "Allah ka khayaal rakho, woh tumhari hifaazat karega."
-     },
-     "ref": "Jami‘ at-Tirmidhi 2516",
-     "url": "https://sunnah.com/tirmidhi:2516"
-    },
-    {
-     "action": {
-      "en": "Say the morning and evening protection",
-      "hi": "Subah shaam hifaazat ki dua padho"
-     },
-     "detail": {
-      "en": "Bismillahil-ladhi la yadurru… three times: nothing will harm you.",
-      "hi": "Bismillahil-lazi la yazurru… teen baar: koi cheez nuqsaan nahi pahunchaayegi."
-     },
-     "ref": "Sunan Abi Dawud 5088",
-     "url": "https://sunnah.com/abudawud:5088"
-    },
-    {
-     "action": {
-      "en": "Say the leaving-home dua",
-      "hi": "Ghar se nikalne ki dua padho"
-     },
-     "detail": {
-      "en": "Whoever says it leaving home is told: you are guided, sufficed and protected.",
-      "hi": "Jo ghar se nikalte waqt yeh padhe, use kaha jaata hai: hidaayat mili, kaafi hua, mehfooz hua."
-     },
-     "ref": "Sunan Abi Dawud 5095",
-     "url": "https://sunnah.com/abudawud:5095"
-    },
-    {
-     "action": {
-      "en": "Pray Fajr",
-      "hi": "Fajr padho"
-     },
-     "detail": {
-      "en": "Whoever prays Fajr is under the protection of Allah.",
-      "hi": "Jo Fajr padhta hai woh Allah ki hifaazat mein hai."
-     },
-     "ref": "Sahih Muslim 657",
-     "url": "https://sunnah.com/muslim:657"
     }
    ]
   },
@@ -3781,7 +3692,7 @@
   },
   {
    "id": "debt",
-   "name": "Debt relief",
+   "name": "Debt Relief",
    "icon": "banknote",
    "color": "#22c55e",
    "keywords": [
@@ -3981,7 +3892,7 @@
    "categories": [
     "daily",
     "jannah",
-    "contentment",
+    "gratitude",
     "marriage"
    ],
    "reference": "Surah Al-Baqarah 2:201",
@@ -4044,7 +3955,6 @@
    "id": "zidni",
    "title": "Increase me in knowledge",
    "categories": [
-    "knowledge",
     "exams"
    ],
    "reference": "Surah Ta-Ha 20:114",
@@ -4087,8 +3997,7 @@
    "categories": [
     "exams",
     "career",
-    "courage",
-    "knowledge"
+    "courage"
    ],
    "reference": "Surah Ta-Ha 20:25–28",
    "arabic": "رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ۝ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ۝ يَفْقَهُوا قَوْلِي",
@@ -4216,7 +4125,7 @@
    "categories": [
     "daily",
     "rizq",
-    "knowledge",
+    "exams",
     "career"
    ],
    "reference": "Sunan Ibn Majah 925",
@@ -4335,7 +4244,7 @@
    "categories": [
     "debt",
     "rizq",
-    "contentment",
+    "gratitude",
     "jealousy"
    ],
    "reference": "Jami‘ at-Tirmidhi 3563",
@@ -4573,7 +4482,6 @@
    "title": "Morning and evening protection",
    "categories": [
     "daily",
-    "protection",
     "evil"
    ],
    "reference": "Sunan Abi Dawud 5088 · Tirmidhi 3388",
@@ -4636,7 +4544,6 @@
    "id": "kalimat",
    "title": "Perfect words of Allah",
    "categories": [
-    "protection",
     "evil",
     "travel",
     "home"
@@ -5056,7 +4963,7 @@
    "title": "Keep my heart firm",
    "categories": [
     "daily",
-    "faith",
+    "closer",
     "guidance"
    ],
    "reference": "Jami‘ at-Tirmidhi 2140",
@@ -5119,7 +5026,7 @@
    "id": "tuzigh",
    "title": "Do not let our hearts deviate",
    "categories": [
-    "faith",
+    "closer",
     "guidance"
    ],
    "reference": "Surah Aal-Imran 3:8",
@@ -5365,7 +5272,7 @@
    "categories": [
     "daily",
     "guidance",
-    "contentment",
+    "gratitude",
     "closer",
     "marriage"
    ],
@@ -5889,9 +5796,8 @@
    "title": "Leaving the house",
    "categories": [
     "trust",
-    "protection",
-    "travel",
-    "evil"
+    "evil",
+    "travel"
    ],
    "reference": "Sunan Abi Dawud 5095",
    "arabic": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ ۝ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
@@ -6530,7 +6436,7 @@
    "id": "afwafiya",
    "title": "Pardon and well-being",
    "categories": [
-    "protection",
+    "evil",
     "healing",
     "daily"
    ],
@@ -6738,7 +6644,7 @@
    "title": "In Your name I lie down",
    "categories": [
     "sleep",
-    "protection"
+    "evil"
    ],
    "reference": "Sahih al-Bukhari 6320",
    "arabic": "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي وَبِكَ أَرْفَعُهُ ۝ إِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا ۝ وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
@@ -7457,7 +7363,6 @@
    "id": "infani",
    "title": "Benefit me with what I learn",
    "categories": [
-    "knowledge",
     "exams"
    ],
    "reference": "Jami‘ at-Tirmidhi 3599",
@@ -7509,8 +7414,8 @@
    "id": "ilmla",
    "title": "Refuge from useless knowledge",
    "categories": [
-    "knowledge",
-    "contentment",
+    "exams",
+    "gratitude",
     "closer",
     "jealousy"
    ],
@@ -7575,7 +7480,6 @@
    "title": "Ayat al-Kursi",
    "categories": [
     "evil",
-    "protection",
     "sleep"
    ],
    "reference": "Surah Al-Baqarah 2:255 · Sahih al-Bukhari 2311",
@@ -7837,7 +7741,7 @@
    "title": "Saying goodbye to a traveller",
    "categories": [
     "travel",
-    "protection"
+    "evil"
    ],
    "reference": "Jami‘ at-Tirmidhi 3443 · Abu Dawud 2600",
    "arabic": "أَسْتَوْدِعُ اللَّهَ دِينَكَ وَأَمَانَتَكَ وَخَوَاتِيمَ عَمَلِكَ",
@@ -7899,8 +7803,8 @@
    "id": "raditu",
    "title": "Pleased with Allah as my Lord",
    "categories": [
-    "contentment",
-    "faith",
+    "gratitude",
+    "closer",
     "daily"
    ],
    "reference": "Sunan Abi Dawud 5072",
@@ -8070,7 +7974,7 @@
    "title": "Truthful in anger and in calm",
    "categories": [
     "anger",
-    "contentment"
+    "gratitude"
    ],
    "reference": "Sunan an-Nasa’i 1305",
    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَشْيَتَكَ فِي الْغَيْبِ وَالشَّهَادَةِ ۝ وَأَسْأَلُكَ كَلِمَةَ الْحَقِّ فِي الرِّضَا وَالْغَضَبِ ۝ وَأَسْأَلُكَ الْقَصْدَ فِي الْفَقْرِ وَالْغِنَى",
@@ -8194,7 +8098,7 @@
    "id": "habbib",
    "title": "Make faith beloved to us",
    "categories": [
-    "faith"
+    "closer"
    ],
    "reference": "Musnad Ahmad 15492",
    "arabic": "اللَّهُمَّ حَبِّبْ إِلَيْنَا الْإِيمَانَ وَزَيِّنْهُ فِي قُلُوبِنَا ۝ وَكَرِّهْ إِلَيْنَا الْكُفْرَ وَالْفُسُوقَ وَالْعِصْيَانَ ۝ وَاجْعَلْنَا مِنَ الرَّاشِدِينَ",
@@ -8256,7 +8160,7 @@
    "id": "abrar",
    "title": "Die among the righteous",
    "categories": [
-    "faith",
+    "closer",
     "jannah"
    ],
    "reference": "Surah Aal-Imran 3:193 · Sahih al-Bukhari 4569",
@@ -9853,7 +9757,7 @@
    ],
    "cats": [
     "grief",
-    "contentment",
+    "gratitude",
     "closer"
    ],
    "duas": [
@@ -9975,7 +9879,6 @@
    ],
    "cats": [
     "closer",
-    "faith",
     "prayers"
    ],
    "duas": [
@@ -10032,7 +9935,6 @@
    ],
    "cats": [
     "trust",
-    "faith",
     "closer"
    ],
    "duas": [
@@ -10142,7 +10044,6 @@
    ],
    "cats": [
     "jealousy",
-    "contentment",
     "gratitude"
    ],
    "duas": [
@@ -10431,8 +10332,7 @@
     "tests$"
    ],
    "cats": [
-    "exams",
-    "knowledge"
+    "exams"
    ],
    "duas": [
     "sahl",
@@ -10870,8 +10770,7 @@
     "buri nazar"
    ],
    "cats": [
-    "evil",
-    "protection"
+    "evil"
    ],
    "duas": [
     "kursi",
@@ -10917,7 +10816,7 @@
    ],
    "cats": [
     "travel",
-    "protection"
+    "evil"
    ],
    "duas": [
     "safar",
@@ -11071,9 +10970,8 @@
     "yakeen nahi"
    ],
    "cats": [
-    "faith",
-    "guidance",
-    "closer"
+    "closer",
+    "guidance"
    ],
    "duas": [
     "muqallib",
@@ -11124,8 +11022,7 @@
     "ho gaya alhamdulillah"
    ],
    "cats": [
-    "gratitude",
-    "contentment"
+    "gratitude"
    ],
    "duas": [
     "maasbaha",
@@ -11173,7 +11070,7 @@
     "khush rehna"
    ],
    "cats": [
-    "contentment",
+    "gratitude",
     "closer"
    ],
    "duas": [
@@ -11303,5 +11200,33 @@
   "jina nahi",
   "zindagi khatam",
   "jaan de"
- ]
+ ],
+ "groups": [
+  {
+   "id": "finance",
+   "name": "Finance",
+   "icon": "wallet",
+   "color": "#10b981",
+   "children": [
+    "rizq",
+    "debt"
+   ]
+  },
+  {
+   "id": "offspring",
+   "name": "Offspring",
+   "icon": "baby",
+   "color": "#f472b6",
+   "children": [
+    "children",
+    "baby"
+   ]
+  }
+ ],
+ "aliases": {
+  "protection": "evil",
+  "contentment": "gratitude",
+  "faith": "closer",
+  "knowledge": "exams"
+ }
 }

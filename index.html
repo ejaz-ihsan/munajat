@@ -983,7 +983,7 @@ async function loadMyTickets(){ const box = document.getElementById("mytk"); if 
     if (fresh.length) { if (view.scrollMine) { const h = document.getElementById("mymsgs"); if (h) h.scrollIntoView({ behavior: "smooth", block: "start" }); view.scrollMine = false; }
       await Promise.all(fresh.map(d => db.collection("tickets").doc(d.id).update({ seen: true }).catch(() => {})));
       TK.unseen = []; paintNotes(); }
-  } catch (e) { box.innerHTML = `<p class="muted" style="margin:0">Couldn't load your messages. Check your internet.</p>`; } }
+  } catch (e) { console.warn("Load tickets failed", e); box.innerHTML = `<p class="muted" style="margin:0">${e && e.code === "permission-denied" ? "Messages aren't available yet. Please try again later." : "Couldn't load your messages. Check your internet."}</p>`; } }
 async function checkNotes(){ if (!USER) return; try { await fetchMine(); } catch (_) { return; }
   paintNotes();
   if (TK.unseen.length && !TK.toasted) { TK.toasted = true; toast(TK.unseen.length === 1 ? "You have a new reply from Munajat" : `You have ${TK.unseen.length} new replies from Munajat`); } }
@@ -1042,7 +1042,7 @@ const _render2 = render; render = function(){ _render2();
       send.disabled = true; info.style.color = ""; info.textContent = "Sending…";
       try { await db.collection("tickets").add({ uid: USER.uid, email: lc(USER.email), name: tkName(), type: TK.type, message: m.slice(0, 2000), status: "open", reply: "", seen: true, created: firebase.firestore.FieldValue.serverTimestamp(), app: "web-" + CONTENT_VERSION });
         TK.last = Date.now(); document.getElementById("fbmsg").value = ""; info.style.color = "var(--teal)"; info.textContent = "Sent. JazakAllahu khayran! You'll get a notification here when we reply."; loadMyTickets();
-      } catch (e) { info.style.color = "var(--danger)"; info.textContent = "Couldn't send. Check your internet and try again."; }
+      } catch (e) { console.warn("Ticket send failed", e); info.style.color = "var(--danger)"; info.textContent = e && e.code === "permission-denied" ? "Couldn't send: the app isn't allowed to save messages yet. Please tell the Munajat team (error: permission)." : (navigator.onLine === false || (e && e.code === "unavailable")) ? "You seem to be offline. Check your internet and try again." : "Couldn't send right now (" + ((e && e.code) || "error") + "). Please try again."; }
       send.disabled = false; };
     if (view.scrollMine === undefined && TK.unseen.length) view.scrollMine = true;
     loadMyTickets();

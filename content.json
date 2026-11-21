@@ -1,5 +1,5 @@
 {
- "version": 7,
+ "version": 8,
  "updated": "2026-11-21",
  "notes": "Munajat content. Edit this file to add duas or categories. Raise 'version' by 1 every time you change it.",
  "daily": [
@@ -648,6 +648,147 @@
      },
      "ref": "Sahih al-Bukhari 6340",
      "url": "https://sunnah.com/bukhari:6340"
+    }
+   ]
+  },
+  {
+   "id": "prophets",
+   "name": "Duas of the Prophets",
+   "icon": "crown",
+   "color": "#c9952e",
+   "keywords": [
+    "prophet",
+    "prophets",
+    "anbiya",
+    "ambiya",
+    "nabi",
+    "nabiyon",
+    "paigambar",
+    "critical",
+    "emergency",
+    "desperate",
+    "helpless",
+    "last hope",
+    "powerful dua",
+    "no way out"
+   ],
+   "names": [
+    "mujib",
+    "wakil",
+    "sami",
+    "rahim"
+   ],
+   "salawat": "short",
+   "order": [
+    "zalamna",
+    "nuh_help",
+    "ibrahim_tawakkul",
+    "lut_najjini",
+    "yusuf_sijn",
+    "yaqub_huzn",
+    "ayyub",
+    "faqir",
+    "yunus",
+    "fardan"
+   ],
+   "quran": [
+    {
+     "action": {
+      "en": "Call out to Him in your darkest moment",
+      "hi": "Apne sabse andhere waqt mein usse pukaaro"
+     },
+     "detail": {
+      "en": "So We answered him and saved him from distress. And thus do We save the believers.",
+      "hi": "Toh humne uski pukaar suni aur use gham se nijaat di. Aur isi tarah hum imaan waalon ko bachaate hain."
+     },
+     "ref": "Surah Al-Anbiya 21:88",
+     "url": "https://quran.com/21/88"
+    },
+    {
+     "action": {
+      "en": "Admit your mistakes to Allah",
+      "hi": "Apni galtiyan Allah ke saamne maano"
+     },
+     "detail": {
+      "en": "Those who, when they commit a wrong or wrong themselves, remember Allah and seek forgiveness for their sins.",
+      "hi": "Woh log jo koi galti kar baithen ya apne upar zulm kar len, toh Allah ko yaad karte hain aur apne gunaahon ki maafi maangte hain."
+     },
+     "ref": "Surah Aal-Imran 3:135",
+     "url": "https://quran.com/3/135"
+    },
+    {
+     "action": {
+      "en": "Say: my Lord is with me",
+      "hi": "Kaho: mera Rab mere saath hai"
+     },
+     "detail": {
+      "en": "Musa said: No! Indeed, my Lord is with me; He will guide me.",
+      "hi": "Musa ne kaha: hargiz nahi! Beshak mera Rab mere saath hai, woh mujhe raasta dikhayega."
+     },
+     "ref": "Surah Ash-Shu‘ara 26:62",
+     "url": "https://quran.com/26/62"
+    },
+    {
+     "action": {
+      "en": "Never lose hope in Allah's relief",
+      "hi": "Allah ki rehmat se kabhi maayoos na ho"
+     },
+     "detail": {
+      "en": "Do not despair of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people.",
+      "hi": "Allah ki rehmat se maayoos na ho. Beshak Allah ki rehmat se sirf inkaar karne waale log hi maayoos hote hain."
+     },
+     "ref": "Surah Yusuf 12:87",
+     "url": "https://quran.com/12/87"
+    }
+   ],
+   "hadith": [
+    {
+     "action": {
+      "en": "Use the dua of Yunus in hardship",
+      "hi": "Mushkil mein Yunus ki dua padho"
+     },
+     "detail": {
+      "en": "No Muslim ever makes this dua of Dhun-Nun for anything except that Allah answers him.",
+      "hi": "Jo Musalmaan bhi kisi cheez ke liye Dhun-Nun (Yunus) ki yeh dua karta hai, Allah uski dua qubool karta hai."
+     },
+     "ref": "Jami‘ at-Tirmidhi 3505",
+     "url": "https://sunnah.com/tirmidhi:3505"
+    },
+    {
+     "action": {
+      "en": "Know that the best are tested most",
+      "hi": "Jaano ki sabse behtar logon ka imtihaan sabse sakht hota hai"
+     },
+     "detail": {
+      "en": "The people most severely tested are the prophets, then those most like them, and then those most like them.",
+      "hi": "Sabse sakht imtihaan nabiyon ka hota hai, phir jo unse sabse zyada milte julte hon, phir jo unse milte julte hon."
+     },
+     "ref": "Jami‘ at-Tirmidhi 2398",
+     "url": "https://sunnah.com/tirmidhi:2398"
+    },
+    {
+     "action": {
+      "en": "Don't give up asking",
+      "hi": "Maangna mat chhodo"
+     },
+     "detail": {
+      "en": "Your dua is answered as long as you are not hasty and say: I prayed, but I was not answered.",
+      "hi": "Tumhari dua qubool hoti hai jab tak tum jaldbaazi na karo aur yeh na kaho: maine dua ki par qubool nahi hui."
+     },
+     "ref": "Sahih al-Bukhari 6340",
+     "url": "https://sunnah.com/bukhari:6340"
+    },
+    {
+     "action": {
+      "en": "Treat every dua as worship",
+      "hi": "Har dua ko ibaadat samjho"
+     },
+     "detail": {
+      "en": "Dua is worship.",
+      "hi": "Dua hi ibaadat hai."
+     },
+     "ref": "Jami‘ at-Tirmidhi 2969",
+     "url": "https://sunnah.com/tirmidhi:2969"
     }
    ]
   },
@@ -4186,12 +4327,13 @@
   },
   {
    "id": "faqir",
-   "title": "In need of any good You send",
+   "title": "The dua of Musa",
    "categories": [
     "rizq",
     "career",
     "marriage",
-    "debt"
+    "debt",
+    "prophets"
    ],
    "reference": "Surah Al-Qasas 28:24",
    "arabic": "رَبِّ إِنِّي لِمَا أَنزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ",
@@ -4387,7 +4529,8 @@
    "categories": [
     "anxiety",
     "forgiveness",
-    "grief"
+    "grief",
+    "prophets"
    ],
    "reference": "Surah Al-Anbiya 21:87",
    "arabic": "لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
@@ -4900,7 +5043,8 @@
    "id": "zalamna",
    "title": "The dua of Adam",
    "categories": [
-    "forgiveness"
+    "forgiveness",
+    "prophets"
    ],
    "reference": "Surah Al-A‘raf 7:23",
    "arabic": "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
@@ -6220,7 +6364,8 @@
    "title": "The dua of Ayyub",
    "categories": [
     "healing",
-    "grief"
+    "grief",
+    "prophets"
    ],
    "reference": "Surah Al-Anbiya 21:83",
    "arabic": "أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",
@@ -6999,9 +7144,10 @@
   },
   {
    "id": "fardan",
-   "title": "Do not leave me alone",
+   "title": "The dua of Zakariyya",
    "categories": [
-    "baby"
+    "baby",
+    "prophets"
    ],
    "reference": "Surah Al-Anbiya 21:89",
    "arabic": "رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنتَ خَيْرُ الْوَارِثِينَ",
@@ -8824,6 +8970,245 @@
      }
     }
    ]
+  },
+  {
+   "id": "nuh_help",
+   "title": "The dua of Nuh",
+   "categories": [
+    "prophets",
+    "courage"
+   ],
+   "reference": "Surah Al-Qamar 54:10",
+   "arabic": "أَنِّي مَغْلُوبٌ فَانتَصِرْ",
+   "transliteration": "Anni maghlubun fantasir.",
+   "english": "I am overpowered, so help me.",
+   "hinglish": "Main haar chuka hoon, ab Tu hi meri madad farma.",
+   "story": {
+    "en": "Nuh (AS) called his people to Allah for 950 years, day and night, in public and in private. Only a few believed. The rest mocked him, called him mad and drove him away. When he had given everything he had, he made this short dua. Allah opened the gates of the sky and saved him and the believers in the Ark.",
+    "hi": "Nuh (AS) ne 950 saal tak apni qaum ko din raat, khule aur chhupe, Allah ki taraf bulaaya. Bohot kam log imaan laaye. Baaqi ne mazaak udaaya, unhe deewana kaha aur jhidak diya. Jab unhone apna sab kuch laga diya, tab yeh chhoti si dua ki. Allah ne aasmaan ke darwaaze khol diye aur unhe aur imaan waalon ko kashti mein bacha liya."
+   },
+   "words": [
+    {
+     "ar": "مَغْلُوبٌ",
+     "tl": "maghlub",
+     "root": "غ ل ب",
+     "en": "overpowered, defeated",
+     "hi": "haara hua, dabaaya hua",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "فَانتَصِرْ",
+     "tl": "fantasir",
+     "root": "ن ص ر",
+     "en": "so help me, give me victory",
+     "hi": "toh madad farma",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "ibrahim_tawakkul",
+   "title": "The dua of Ibrahim",
+   "categories": [
+    "prophets",
+    "trust"
+   ],
+   "reference": "Surah Al-Mumtahanah 60:4",
+   "arabic": "رَّبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ الْمَصِيرُ",
+   "transliteration": "Rabbana ‘alayka tawakkalna wa ilayka anabna wa ilaykal-masir.",
+   "english": "Our Lord, upon You we have relied, to You we have turned, and to You is the final return.",
+   "hinglish": "Aye hamare Rab, humne Tujh par bharosa kiya, Teri taraf ruju kiya, aur Teri hi taraf lautna hai.",
+   "story": {
+    "en": "Ibrahim (AS) stood alone against his own father and his whole nation, who worshipped idols. He broke their idols, and they threw him into a huge fire, but Allah made it cool and safe for him. He and the few who believed with him separated from their people and put their whole trust in Allah with these words.",
+    "hi": "Ibrahim (AS) apne waalid aur poori qaum ke khilaaf akele khade hue, jo buton ki pooja karti thi. Unhone unke but tod diye, aur qaum ne unhe ek bohot badi aag mein phenk diya, par Allah ne aag ko unke liye thandi aur salaamati waali bana diya. Woh aur unke saath imaan laane waale chand log apni qaum se alag hue aur in alfaaz ke saath poora bharosa Allah par rakh diya."
+   },
+   "words": [
+    {
+     "ar": "تَوَكَّلْنَا",
+     "tl": "tawakkalna",
+     "root": "و ك ل",
+     "en": "we have relied, trusted",
+     "hi": "humne bharosa kiya",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "أَنَبْنَا",
+     "tl": "anabna",
+     "root": "ن و ب",
+     "en": "we have turned back to You",
+     "hi": "humne ruju kiya",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "الْمَصِيرُ",
+     "tl": "al-masir",
+     "root": "ص ي ر",
+     "en": "the final return",
+     "hi": "aakhri thikaana",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "lut_najjini",
+   "title": "The dua of Lut",
+   "categories": [
+    "prophets",
+    "evil",
+    "home"
+   ],
+   "reference": "Surah Ash-Shu‘ara 26:169",
+   "arabic": "رَبِّ نَجِّنِي وَأَهْلِي مِمَّا يَعْمَلُونَ",
+   "transliteration": "Rabbi najjini wa ahli mimma ya‘malun.",
+   "english": "My Lord, save me and my family from what they do.",
+   "hinglish": "Aye mere Rab, mujhe aur mere ghar waalon ko unke kaamon (ki buraai) se bacha le.",
+   "story": {
+    "en": "Lut (AS) lived among a people who openly committed shameful sins, and they threatened to drive him out of the town for telling them to stop. Surrounded by evil and worried for his family, he asked Allah to save them. Allah rescued him and his family, except his wife, before the punishment came.",
+    "hi": "Lut (AS) ek aisi qaum mein rehte the jo khule aam sharmnaak gunah karti thi, aur unhe rokne par qaum ne unhe shehar se nikaalne ki dhamki di. Buraai se ghire hue aur apne ghar waalon ki fikr mein, unhone Allah se unhe bachaane ki dua ki. Allah ne azaab aane se pehle unhe aur unke ghar waalon ko, siwaaye unki biwi ke, bacha liya."
+   },
+   "words": [
+    {
+     "ar": "نَجِّنِي",
+     "tl": "najjini",
+     "root": "ن ج و",
+     "en": "save me, rescue me",
+     "hi": "mujhe nijaat de",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "أَهْلِي",
+     "tl": "ahli",
+     "root": "أ ه ل",
+     "en": "my family",
+     "hi": "mere ghar waale",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "yusuf_sijn",
+   "title": "The dua of Yusuf",
+   "categories": [
+    "prophets",
+    "discipline"
+   ],
+   "reference": "Surah Yusuf 12:33",
+   "arabic": "رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ وَإِلَّا تَصْرِفْ عَنِّي كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ الْجَاهِلِينَ",
+   "transliteration": "Rabbis-sijnu ahabbu ilayya mimma yad‘unani ilayh, wa illa tasrif ‘anni kaydahunna asbu ilayhinna wa akun minal-jahilin.",
+   "english": "My Lord, prison is dearer to me than what they invite me to. If You do not turn their scheming away from me, I may incline towards them and be among the ignorant.",
+   "hinglish": "Aye mere Rab, jis cheez ki taraf yeh mujhe bula rahi hain usse mujhe qaid zyada pasand hai. Agar Tu inki chaal mujhse na phere, toh main inki taraf jhuk jaaunga aur naadaanon mein se ho jaaunga.",
+   "story": {
+    "en": "Yusuf (AS) was a young man far from home, living as a slave in the house of a powerful minister of Egypt. The minister's wife and other women tried to seduce him and threatened him with prison if he refused. He chose prison over sin and asked Allah to protect him. Allah turned their scheming away from him, and years later raised him from prison to be in charge of Egypt's storehouses.",
+    "hi": "Yusuf (AS) ghar se door ek naujawaan the, jo Misr ke ek taaqatwar wazeer ke ghar mein ghulaam ki tarah rehte the. Wazeer ki biwi aur doosri auraton ne unhe gunah ki taraf bulaaya aur inkaar par qaid ki dhamki di. Unhone gunah ke bajaaye qaid ko chuna aur Allah se hifaazat maangi. Allah ne unki chaal unse pher di, aur saalon baad unhe qaid se nikaal kar Misr ke khazaanon ka zimmedaar bana diya."
+   },
+   "words": [
+    {
+     "ar": "السِّجْنُ",
+     "tl": "as-sijn",
+     "root": "س ج ن",
+     "en": "prison",
+     "hi": "qaid, jail",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "تَصْرِفْ",
+     "tl": "tasrif",
+     "root": "ص ر ف",
+     "en": "turn away",
+     "hi": "pher de, hata de",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "كَيْدَهُنَّ",
+     "tl": "kaydahunna",
+     "root": "ك ي د",
+     "en": "their scheming",
+     "hi": "unki chaal",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "yaqub_huzn",
+   "title": "The dua of Ya‘qub",
+   "categories": [
+    "prophets",
+    "grief"
+   ],
+   "reference": "Surah Yusuf 12:86",
+   "arabic": "إِنَّمَا أَشْكُو بَثِّي وَحُزْنِي إِلَى اللَّهِ وَأَعْلَمُ مِنَ اللَّهِ مَا لَا تَعْلَمُونَ",
+   "transliteration": "Innama ashku baththi wa huzni ilallah, wa a‘lamu minallahi ma la ta‘lamun.",
+   "english": "I only complain of my deep sorrow and my grief to Allah, and I know from Allah what you do not know.",
+   "hinglish": "Main apne gehre dukh aur gham ki shikaayat sirf Allah se karta hoon, aur main Allah ki taraf se woh jaanta hoon jo tum nahi jaante.",
+   "story": {
+    "en": "Ya‘qub (AS) lost his beloved son Yusuf, and years later another son was held back in Egypt. He cried until his eyes turned white from grief, and his family warned him he would ruin himself. He did not complain to people. He took his sorrow to Allah alone and told his sons never to lose hope in Allah's mercy. Allah reunited him with his sons and restored his sight.",
+    "hi": "Ya‘qub (AS) ne apne pyaare bete Yusuf ko kho diya, aur saalon baad ek aur beta Misr mein rok liya gaya. Woh itna roye ki gham se unki aankhein safed ho gayin, aur ghar waalon ne kaha ki aap khud ko khatam kar loge. Unhone logon se shikaayat nahi ki. Apna dukh sirf Allah ke saamne rakha aur beton se kaha ki Allah ki rehmat se kabhi maayoos na hona. Allah ne unhe beton se mila diya aur unki aankhon ki roshni lauta di."
+   },
+   "words": [
+    {
+     "ar": "أَشْكُو",
+     "tl": "ashku",
+     "root": "ش ك و",
+     "en": "I complain",
+     "hi": "main shikaayat karta hoon",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "بَثِّي",
+     "tl": "baththi",
+     "root": "ب ث ث",
+     "en": "my deep sorrow (that I can't hold in)",
+     "hi": "mera gehra dukh",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "حُزْنِي",
+     "tl": "huzni",
+     "root": "ح ز ن",
+     "en": "my grief",
+     "hi": "mera gham",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
   }
  ],
  "names": {
@@ -9366,6 +9751,7 @@
     "kya hoga"
    ],
    "cats": [
+    "prophets",
     "anxiety",
     "courage",
     "trust"
@@ -9558,6 +9944,7 @@
     "kuch nahi ho raha"
    ],
    "cats": [
+    "prophets",
     "courage",
     "anxiety",
     "trust"
@@ -9616,6 +10003,7 @@
     "phasa hua"
    ],
    "cats": [
+    "prophets",
     "anxiety",
     "trust",
     "courage"
@@ -9934,6 +10322,7 @@
     "itne saal se"
    ],
    "cats": [
+    "prophets",
     "trust",
     "closer"
    ],

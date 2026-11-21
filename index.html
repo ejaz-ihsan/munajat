@@ -391,7 +391,7 @@ const CAT_OPEN = {"exams": {"names": ["alim", "fattah", "hakim"], "sal": "short"
 CATS.forEach(c=>{const o=CAT_OPEN[c.id];if(o){c.names=o.names;c.sal=o.sal}});
 let CAT = Object.fromEntries(CATS.map(c=>[c.id,c]));
 let DUA = Object.fromEntries(DUAS.map(d=>[d.id,d]));
-const duasFor = cid => cid==="daily" ? DAILY : DUAS.filter(d=>d.cats.includes(cid)).map(d=>d.id);
+const duasFor = cid => {if(cid==="daily")return DAILY;const l=DUAS.filter(d=>d.cats.includes(cid)).map(d=>d.id),o=ORDER[cid];return o?l.sort((a,b)=>(o.indexOf(a)+1||999)-(o.indexOf(b)+1||999)):l};
 let DAILY = ["istighfar","atina","nafi","hasbuna","bismillah","hamm","muqallib","ainni","janna","huda"];
 let VERSES = [
  ["We are closer to him than his jugular vein","Surah Qaf 50:16"],
@@ -453,7 +453,7 @@ function readHeart(text){const T=heartNorm(text);
  CATS.forEach(c=>{if(cats.length<6&&!cats.includes(c.id)&&((KEYWORDS[c.id]||[]).some(k=>T.includes(" "+k))))cats.push(c.id)});
  return {crisis,matched:top.length>0,feel:main,duas:duas.slice(0,6),cats:cats.slice(0,6)}}
 function heartLang(){return S.lang==="hi"?"hi":"en"}
-let GROUPS = [], ALIASES = {};
+let GROUPS = [], ALIASES = {}, ORDER = {};
 let CONTENT_VERSION = 5;
 function useContent(c){
  if(!c||!Array.isArray(c.duas)||!Array.isArray(c.categories)||!c.duas.length) return false;
@@ -465,7 +465,7 @@ function useContent(c){
  GUIDE=Object.fromEntries(c.categories.map(x=>{const m=o=>({a:o.action,d:o.detail,ref:o.ref||"",url:o.url||""});return [x.id,{q:(x.quran||[]).map(m),h:(x.hadith||[]).map(m)}]}));
  if(c.names) NAMES=c.names; if(c.salawat) SALAWAT=c.salawat; if(c.opening) OPENING=c.opening;
  KEYWORDS=Object.fromEntries(c.categories.map(x=>[x.id,x.keywords||[]]));
- ALIASES=c.aliases||{}; GROUPS=(c.groups||[]).map(g=>({id:g.id,name:g.name,icon:g.icon||"folder",color:g.color||"#e3b768",children:(g.children||[]).filter(id=>c.categories.some(x=>x.id===id))})).filter(g=>g.children.length);
+ ALIASES=c.aliases||{}; ORDER=Object.fromEntries(c.categories.filter(x=>Array.isArray(x.order)).map(x=>[x.id,x.order])); GROUPS=(c.groups||[]).map(g=>({id:g.id,name:g.name,icon:g.icon||"folder",color:g.color||"#e3b768",children:(g.children||[]).filter(id=>c.categories.some(x=>x.id===id))})).filter(g=>g.children.length);
  CAT=Object.fromEntries(CATS.map(x=>[x.id,x]));
  CAT._saved={id:"_saved",name:"Saved Duas",icon:"bookmark",color:"#a78bfa"};
  CAT._heart={id:"_heart",name:"For your heart",icon:"heart",color:"#e3b768"};

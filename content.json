@@ -1,5 +1,5 @@
 {
- "version": 8,
+ "version": 9,
  "updated": "2026-11-21",
  "notes": "Munajat content. Edit this file to add duas or categories. Raise 'version' by 1 every time you change it.",
  "daily": [
@@ -2574,6 +2574,248 @@
    ]
   },
   {
+   "id": "purity",
+   "name": "Quit Porn Addiction",
+   "icon": "shield-check",
+   "color": "#0ea5e9",
+   "keywords": [
+    "porn",
+    "pornography",
+    "addiction",
+    "lust",
+    "urges",
+    "nofap",
+    "relapse",
+    "zina",
+    "haya",
+    "modesty",
+    "chastity",
+    "purity",
+    "lower gaze",
+    "gaze",
+    "gandi",
+    "shehwat",
+    "hawas"
+   ],
+   "names": [
+    "tawwab",
+    "ghaffar",
+    "hafiz",
+    "quddus"
+   ],
+   "salawat": "short",
+   "order": [
+    "hamazat",
+    "sharr_sam",
+    "yusuf_sijn",
+    "tahhir_qalbi",
+    "huda",
+    "habbib",
+    "munkarat",
+    "muqallib",
+    "tuzigh",
+    "zalamna",
+    "tubalayya",
+    "istighfar"
+   ],
+   "quran": [
+    {
+     "action": {
+      "en": "Don't even go near it",
+      "hi": "Iske qareeb bhi mat jao"
+     },
+     "detail": {
+      "en": "And do not approach zina. Indeed, it is an immorality and an evil way.",
+      "hi": "Aur zina ke qareeb bhi na jao. Beshak woh behayaai hai aur bura raasta hai."
+     },
+     "ref": "Surah Al-Isra 17:32",
+     "url": "https://quran.com/17/32"
+    },
+    {
+     "action": {
+      "en": "Lower your gaze",
+      "hi": "Apni nazar neechi rakho"
+     },
+     "detail": {
+      "en": "Tell the believing men to lower their gaze and guard their private parts. That is purer for them. Allah knows well what they do.",
+      "hi": "Imaan waale mardon se kaho apni nazrein neechi rakhein aur apni sharmgaahon ki hifaazat karein. Yeh unke liye zyada paakeezgi ki baat hai. Allah jaanta hai jo woh karte hain."
+     },
+     "ref": "Surah An-Nur 24:30",
+     "url": "https://quran.com/24/30"
+    },
+    {
+     "action": {
+      "en": "When the urge comes, remember Allah",
+      "hi": "Jab khwahish uthe, Allah ko yaad karo"
+     },
+     "detail": {
+      "en": "Those who fear Allah, when a passing urge from Shaytan touches them, they remember Allah, and at once they see clearly.",
+      "hi": "Jo Allah se darte hain, jab Shaitaan ki taraf se koi waswasa unhe chhoota hai toh woh Allah ko yaad karte hain, aur foran unki aankhein khul jaati hain."
+     },
+     "ref": "Surah Al-A‘raf 7:201",
+     "url": "https://quran.com/7/201"
+    },
+    {
+     "action": {
+      "en": "Remember your eyes will testify",
+      "hi": "Yaad rakho aankhein gawaahi dengi"
+     },
+     "detail": {
+      "en": "Indeed, the hearing, the sight and the heart, about all of these you will be questioned.",
+      "hi": "Beshak kaan, aankh aur dil, in sab ke baare mein poochha jaayega."
+     },
+     "ref": "Surah Al-Isra 17:36",
+     "url": "https://quran.com/17/36"
+    },
+    {
+     "action": {
+      "en": "Remember Allah is watching",
+      "hi": "Yaad rakho Allah dekh raha hai"
+     },
+     "detail": {
+      "en": "Does he not know that Allah sees?",
+      "hi": "Kya woh nahi jaanta ki Allah dekh raha hai?"
+     },
+     "ref": "Surah Al-‘Alaq 96:14",
+     "url": "https://quran.com/96/14"
+    },
+    {
+     "action": {
+      "en": "Cut off the first step",
+      "hi": "Pehla qadam hi kaat do"
+     },
+     "detail": {
+      "en": "O you who believe, do not follow the footsteps of Shaytan. Whoever follows the footsteps of Shaytan, he commands immorality and wrongdoing.",
+      "hi": "Aye imaan waalo, Shaitaan ke qadmon par na chalo. Jo Shaitaan ke qadmon par chalta hai, woh use behayaai aur buraai ka hukm deta hai."
+     },
+     "ref": "Surah An-Nur 24:21",
+     "url": "https://quran.com/24/21"
+    },
+    {
+     "action": {
+      "en": "Know your past can be turned into good",
+      "hi": "Jaano ki pichhle gunah nekiyon mein badal sakte hain"
+     },
+     "detail": {
+      "en": "Except those who repent, believe and do righteous deeds. For them Allah will replace their evil deeds with good. Allah is Forgiving and Merciful.",
+      "hi": "Siwaaye unke jo tauba karein, imaan laayein aur nek amal karein. Allah unki buraaiyon ko nekiyon se badal dega. Allah bakhshne waala, reham karne waala hai."
+     },
+     "ref": "Surah Al-Furqan 25:70",
+     "url": "https://quran.com/25/70"
+    },
+    {
+     "action": {
+      "en": "Never despair after a slip",
+      "hi": "Phisalne ke baad maayoos na ho"
+     },
+     "detail": {
+      "en": "Say: O My servants who have wronged themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins.",
+      "hi": "Keh do: aye mere bando jinhone apne upar zulm kiya, Allah ki rehmat se maayoos na ho. Beshak Allah saare gunah maaf kar deta hai."
+     },
+     "ref": "Surah Az-Zumar 39:53",
+     "url": "https://quran.com/39/53"
+    }
+   ],
+   "hadith": [
+    {
+     "action": {
+      "en": "Guard what is between your legs",
+      "hi": "Apni sharmgaah ki hifaazat karo"
+     },
+     "detail": {
+      "en": "Whoever guarantees me what is between his jaws and what is between his legs, I guarantee him Paradise.",
+      "hi": "Jo mujhe apni zabaan aur apni sharmgaah ki zamaanat de, main use Jannat ki zamaanat deta hoon."
+     },
+     "ref": "Sahih al-Bukhari 6474",
+     "url": "https://sunnah.com/bukhari:6474"
+    },
+    {
+     "action": {
+      "en": "Know the eyes commit zina too",
+      "hi": "Jaano aankhein bhi zina karti hain"
+     },
+     "detail": {
+      "en": "The eyes commit zina, and their zina is looking. The heart desires and wishes, and the private parts confirm it or deny it.",
+      "hi": "Aankhein zina karti hain aur unka zina dekhna hai. Dil chaahta aur tamanna karta hai, aur sharmgaah uski tasdeeq karti hai ya jhutlaati hai."
+     },
+     "ref": "Sahih Muslim 2657",
+     "url": "https://sunnah.com/muslim:2657"
+    },
+    {
+     "action": {
+      "en": "Don't take the second look",
+      "hi": "Doosri nazar mat daalo"
+     },
+     "detail": {
+      "en": "Do not follow one glance with another. The first is yours, but the second is not.",
+      "hi": "Ek nazar ke baad doosri nazar mat daalo. Pehli tumhari hai, doosri nahi."
+     },
+     "ref": "Sunan Abi Dawud 2149",
+     "url": "https://sunnah.com/abudawud:2149"
+    },
+    {
+     "action": {
+      "en": "Fast, or marry if you can",
+      "hi": "Roza rakho, ya mumkin ho toh nikah karo"
+     },
+     "detail": {
+      "en": "O young people, whoever can afford to marry should marry, for it lowers the gaze and guards chastity. Whoever cannot should fast, for fasting is a shield for him.",
+      "hi": "Aye naujawaano, jo nikah ki taaqat rakhe woh nikah kare, kyunki yeh nazar ko neecha aur sharmgaah ko mehfooz rakhta hai. Jo na kar sake woh roze rakhe, kyunki roza uske liye dhaal hai."
+     },
+     "ref": "Sahih al-Bukhari 5066",
+     "url": "https://sunnah.com/bukhari:5066"
+    },
+    {
+     "action": {
+      "en": "Fear Allah when you are alone",
+      "hi": "Akele mein bhi Allah se daro"
+     },
+     "detail": {
+      "en": "I know people of my Ummah who will come on the Day of Resurrection with good deeds like mountains, but Allah will make them scattered dust: when they are alone with what Allah has forbidden, they violate it.",
+      "hi": "Main apni ummat ke kuch logon ko jaanta hoon jo qayaamat ke din pahaadon jaisi nekiyaan laayenge, par Allah unhe udti dhool bana dega: jab woh akele mein Allah ki haraam ki hui cheezon ke saath hote hain, toh unhe kar guzarte hain."
+     },
+     "ref": "Sunan Ibn Majah 4245",
+     "url": "https://sunnah.com/ibnmajah:4245"
+    },
+    {
+     "action": {
+      "en": "Aim for Allah's shade",
+      "hi": "Allah ke saaye ki niyat rakho"
+     },
+     "detail": {
+      "en": "Seven will be shaded by Allah on the Day when there is no shade but His, among them a man called by a woman of beauty and status, but he says: I fear Allah.",
+      "hi": "Saat log us din Allah ke saaye mein honge jab uske siwa koi saaya na hoga, unmein woh shakhs bhi jise koi khoobsurat aur izzatdaar aurat bulaaye aur woh kahe: main Allah se darta hoon."
+     },
+     "ref": "Sahih al-Bukhari 660",
+     "url": "https://sunnah.com/bukhari:660"
+    },
+    {
+     "action": {
+      "en": "Follow a slip with a good deed",
+      "hi": "Galti ke baad foran neki karo"
+     },
+     "detail": {
+      "en": "Fear Allah wherever you are, follow a bad deed with a good deed and it will wipe it out, and treat people with good character.",
+      "hi": "Jahan bhi ho Allah se daro, buraai ke baad neki karo, woh use mita degi, aur logon se achhe akhlaaq se pesh aao."
+     },
+     "ref": "Jami‘ at-Tirmidhi 1987",
+     "url": "https://sunnah.com/tirmidhi:1987"
+    },
+    {
+     "action": {
+      "en": "Repent, and start clean",
+      "hi": "Tauba karo aur naye sire se shuru karo"
+     },
+     "detail": {
+      "en": "The one who repents from a sin is like one who has no sin.",
+      "hi": "Gunah se tauba karne waala aisa hai jaise usne gunah kiya hi na ho."
+     },
+     "ref": "Sunan Ibn Majah 4250",
+     "url": "https://sunnah.com/ibnmajah:4250"
+    }
+   ]
+  },
+  {
    "id": "kindness",
    "name": "Kindness",
    "icon": "heart-handshake",
@@ -3958,7 +4200,8 @@
    "title": "Sayyid al-Istighfar",
    "categories": [
     "daily",
-    "forgiveness"
+    "forgiveness",
+    "purity"
    ],
    "reference": "Sahih al-Bukhari 6306",
    "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ ۝ خَلَقْتَنِي وَأَنَا عَبْدُكَ ۝ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ ۝ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ ۝ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ ۝ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي ۝ فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
@@ -5044,7 +5287,8 @@
    "title": "The dua of Adam",
    "categories": [
     "forgiveness",
-    "prophets"
+    "prophets",
+    "purity"
    ],
    "reference": "Surah Al-A‘raf 7:23",
    "arabic": "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
@@ -5108,7 +5352,8 @@
    "categories": [
     "daily",
     "closer",
-    "guidance"
+    "guidance",
+    "purity"
    ],
    "reference": "Jami‘ at-Tirmidhi 2140",
    "arabic": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
@@ -5171,7 +5416,8 @@
    "title": "Do not let our hearts deviate",
    "categories": [
     "closer",
-    "guidance"
+    "guidance",
+    "purity"
    ],
    "reference": "Surah Aal-Imran 3:8",
    "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
@@ -5418,7 +5664,8 @@
     "guidance",
     "gratitude",
     "closer",
-    "marriage"
+    "marriage",
+    "purity"
    ],
    "reference": "Sahih Muslim 2721",
    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
@@ -6686,7 +6933,8 @@
    "id": "tubalayya",
    "title": "Accept my repentance",
    "categories": [
-    "forgiveness"
+    "forgiveness",
+    "purity"
    ],
    "reference": "Sunan Abi Dawud 1516",
    "arabic": "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ ۝ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
@@ -8068,7 +8316,8 @@
     "kindness",
     "anger",
     "jealousy",
-    "discipline"
+    "discipline",
+    "purity"
    ],
    "reference": "Jami‘ at-Tirmidhi 3591",
    "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ مُنْكَرَاتِ الْأَخْلَاقِ وَالْأَعْمَالِ وَالْأَهْوَاءِ",
@@ -8244,7 +8493,8 @@
    "id": "habbib",
    "title": "Make faith beloved to us",
    "categories": [
-    "closer"
+    "closer",
+    "purity"
    ],
    "reference": "Musnad Ahmad 15492",
    "arabic": "اللَّهُمَّ حَبِّبْ إِلَيْنَا الْإِيمَانَ وَزَيِّنْهُ فِي قُلُوبِنَا ۝ وَكَرِّهْ إِلَيْنَا الْكُفْرَ وَالْفُسُوقَ وَالْعِصْيَانَ ۝ وَاجْعَلْنَا مِنَ الرَّاشِدِينَ",
@@ -9020,7 +9270,7 @@
     "trust"
    ],
    "reference": "Surah Al-Mumtahanah 60:4",
-   "arabic": "رَّبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ الْمَصِيرُ",
+   "arabic": "رَبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ الْمَصِيرُ",
    "transliteration": "Rabbana ‘alayka tawakkalna wa ilayka anabna wa ilaykal-masir.",
    "english": "Our Lord, upon You we have relied, to You we have turned, and to You is the final return.",
    "hinglish": "Aye hamare Rab, humne Tujh par bharosa kiya, Teri taraf ruju kiya, aur Teri hi taraf lautna hai.",
@@ -9111,7 +9361,8 @@
    "title": "The dua of Yusuf",
    "categories": [
     "prophets",
-    "discipline"
+    "discipline",
+    "purity"
    ],
    "reference": "Surah Yusuf 12:33",
    "arabic": "رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ وَإِلَّا تَصْرِفْ عَنِّي كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ الْجَاهِلِينَ",
@@ -9203,6 +9454,163 @@
      "root": "ح ز ن",
      "en": "my grief",
      "hi": "mera gham",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "hamazat",
+   "title": "When an urge or whisper comes",
+   "categories": [
+    "purity",
+    "evil"
+   ],
+   "reference": "Surah Al-Mu’minun 23:97–98",
+   "arabic": "رَبِّ أَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ وَأَعُوذُ بِكَ رَبِّ أَن يَحْضُرُونِ",
+   "transliteration": "Rabbi a‘udhu bika min hamazatish-shayatin, wa a‘udhu bika Rabbi an yahdurun.",
+   "english": "My Lord, I seek refuge in You from the promptings of the devils, and I seek refuge in You, my Lord, from their coming near me.",
+   "hinglish": "Aye mere Rab, main shaitaanon ke waswason aur uksaane se Teri panaah maangta hoon, aur aye mere Rab, is se bhi Teri panaah ki woh mere paas aayen.",
+   "story": {
+    "en": "Allah taught the Prophet ﷺ these words to seek refuge from the shayatin. The word hamazat means sudden jabs or pushes, which is exactly how an urge feels: it comes suddenly and pushes. Say this the moment the thought arrives, before it grows, and then get up and change what you are doing.",
+    "hi": "Allah ne Nabi ﷺ ko shaitaanon se panaah maangne ke liye yeh alfaaz sikhaaye. Hamazat ka matlab hai achaanak ke dhakke ya uksaawe, aur khwahish bilkul aisi hi lagti hai: achaanak aati hai aur dhakelti hai. Jaise hi khayaal aaye, usi waqt yeh padho, usse pehle ki woh badhe, aur phir uth kar jo kar rahe ho use badal do."
+   },
+   "words": [
+    {
+     "ar": "هَمَزَاتِ",
+     "tl": "hamazat",
+     "root": "ه م ز",
+     "en": "sudden pushes, promptings",
+     "hi": "achaanak ke dhakke, uksaawe",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "أَعُوذُ",
+     "tl": "a‘udhu",
+     "root": "ع و ذ",
+     "en": "I seek refuge",
+     "hi": "main panaah maangta hoon",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "يَحْضُرُونِ",
+     "tl": "yahdurun",
+     "root": "ح ض ر",
+     "en": "that they come near me",
+     "hi": "ki woh mere paas aayen",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "sharr_sam",
+   "title": "Protect my eyes, ears and desires",
+   "categories": [
+    "purity",
+    "evil",
+    "discipline"
+   ],
+   "reference": "Sunan Abi Dawud 1551 · Jami‘ at-Tirmidhi 3492",
+   "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ سَمْعِي، وَمِنْ شَرِّ بَصَرِي، وَمِنْ شَرِّ لِسَانِي، وَمِنْ شَرِّ قَلْبِي، وَمِنْ شَرِّ مَنِيِّي",
+   "transliteration": "Allahumma inni a‘udhu bika min sharri sam‘i, wa min sharri basari, wa min sharri lisani, wa min sharri qalbi, wa min sharri maniyyi.",
+   "english": "O Allah, I seek refuge in You from the evil of my hearing, the evil of my sight, the evil of my tongue, the evil of my heart and the evil of my desire.",
+   "hinglish": "Aye Allah, main Teri panaah maangta hoon apne kaanon ki buraai se, apni aankhon ki buraai se, apni zabaan ki buraai se, apne dil ki buraai se, aur apni shehwat ki buraai se.",
+   "story": {
+    "en": "Shakal ibn Humayd (RA) asked the Prophet ﷺ to teach him a dua of protection. The Prophet ﷺ took his hand and taught him this: refuge from the evil of the ears, the eyes, the tongue, the heart and sexual desire. These are the very doorways through which this sin enters, and he named each one.",
+    "hi": "Shakal bin Humaid (RA) ne Nabi ﷺ se hifaazat ki dua sikhaane ko kaha. Nabi ﷺ ne unka haath pakda aur yeh sikhaaya: kaanon, aankhon, zabaan, dil aur shehwat ki buraai se panaah. Yahi woh darwaaze hain jinse yeh gunah andar aata hai, aur aap ﷺ ne har ek ka naam liya."
+   },
+   "words": [
+    {
+     "ar": "سَمْعِي",
+     "tl": "sam‘i",
+     "root": "س م ع",
+     "en": "my hearing",
+     "hi": "mere kaan, meri sunnaai",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "بَصَرِي",
+     "tl": "basari",
+     "root": "ب ص ر",
+     "en": "my sight",
+     "hi": "meri nazar",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "مَنِيِّي",
+     "tl": "maniyyi",
+     "root": "م ن ي",
+     "en": "my sexual desire",
+     "hi": "meri shehwat",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    }
+   ]
+  },
+  {
+   "id": "tahhir_qalbi",
+   "title": "Purify my heart, guard my chastity",
+   "categories": [
+    "purity",
+    "forgiveness"
+   ],
+   "reference": "Musnad Ahmad 22211 (said for a young man; here in the first person)",
+   "arabic": "اللَّهُمَّ اغْفِرْ ذَنْبِي، وَطَهِّرْ قَلْبِي، وَحَصِّنْ فَرْجِي",
+   "transliteration": "Allahummaghfir dhanbi, wa tahhir qalbi, wa hassin farji.",
+   "english": "O Allah, forgive my sin, purify my heart, and guard my chastity.",
+   "hinglish": "Aye Allah, mera gunah maaf farma, mera dil paak kar de, aur meri sharmgaah ki hifaazat farma.",
+   "story": {
+    "en": "A young man came to the Prophet ﷺ and asked permission to commit zina. The Companions scolded him, but the Prophet ﷺ brought him close and gently asked: would you like it for your mother? Your daughter? Your sister? Each time he said no. Then the Prophet ﷺ placed his hand on him and made this dua for him: \"O Allah, forgive his sin, purify his heart and guard his chastity.\" After that, the young man never turned towards such things again. You can say it for yourself, as written here.",
+    "hi": "Ek naujawaan Nabi ﷺ ke paas aaya aur zina ki ijaazat maangi. Sahaba ne use daanta, par Nabi ﷺ ne use paas bulaaya aur narmi se poocha: kya tum yeh apni maa ke liye pasand karoge? Apni beti ke liye? Apni behen ke liye? Har baar usne kaha nahi. Phir Nabi ﷺ ne us par haath rakha aur uske liye yeh dua ki: \"Aye Allah, iska gunah maaf farma, iska dil paak kar de aur iski sharmgaah ki hifaazat farma.\" Uske baad woh naujawaan kabhi aisi cheezon ki taraf nahi gaya. Aap yeh dua apne liye padh sakte ho, jaise yahan likhi hai."
+   },
+   "words": [
+    {
+     "ar": "طَهِّرْ",
+     "tl": "tahhir",
+     "root": "ط ه ر",
+     "en": "purify",
+     "hi": "paak kar de",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "حَصِّنْ",
+     "tl": "hassin",
+     "root": "ح ص ن",
+     "en": "guard, fortify",
+     "hi": "hifaazat kar, mazboot qila bana de",
+     "note": {
+      "en": "",
+      "hi": ""
+     }
+    },
+    {
+     "ar": "قَلْبِي",
+     "tl": "qalbi",
+     "root": "ق ل ب",
+     "en": "my heart",
+     "hi": "mera dil",
      "note": {
       "en": "",
       "hi": ""
@@ -9655,6 +10063,83 @@
   "ref": "Jami‘ at-Tirmidhi 3477 · Sahih Muslim 408"
  },
  "feelings": [
+  {
+   "id": "lust",
+   "w": 1.3,
+   "label": {
+    "en": "struggling with porn or lustful urges",
+    "hi": "porn ya buri khwahishon se joojh rahe"
+   },
+   "phrases": [
+    "porn",
+    "pornograph",
+    "nofap",
+    "no fap",
+    "masturbat",
+    "fap$",
+    "adult video",
+    "adult content",
+    "adult site",
+    "dirty video",
+    "dirty videos",
+    "haram video",
+    "haram content",
+    "nude",
+    "nudes",
+    "onlyfans",
+    "only fans",
+    "lust",
+    "lustful",
+    "urges",
+    "sexual urge",
+    "sexual thoughts",
+    "dirty thoughts",
+    "control my desires",
+    "control my nafs",
+    "addicted to porn",
+    "porn addiction",
+    "watching porn",
+    "zina",
+    "gande video",
+    "ganda video",
+    "gandi video",
+    "gandi cheez",
+    "galat video",
+    "galat cheezein dekh",
+    "ashleel",
+    "fahash",
+    "fahhashi",
+    "haram dekh",
+    "nafs control",
+    "nafs pe control",
+    "shehwat",
+    "shahwat",
+    "hawas",
+    "buri nazar dalna"
+   ],
+   "cats": [
+    "purity",
+    "forgiveness",
+    "discipline"
+   ],
+   "duas": [
+    "hamazat",
+    "sharr_sam",
+    "tahhir_qalbi",
+    "yusuf_sijn",
+    "huda",
+    "tubalayya"
+   ],
+   "comfort": {
+    "en": "You are not your worst moments. The fact that you want to stop is a sign that your heart is alive and Allah is calling you back. Every time you turn away from it for His sake, it is written for you, and every time you slip, the door of tawbah is still wide open. Start again, today.",
+    "hi": "Aap apne sabse bure lamhe nahi ho. Aap rukna chahte ho, yeh is baat ki nishaani hai ki aapka dil zinda hai aur Allah aapko waapas bula raha hai. Har baar jab aap uski khaatir isse munh modte ho, woh aapke liye likha jaata hai, aur har baar phisalne par bhi tauba ka darwaaza poora khula hai. Aaj se phir shuru karo."
+   },
+   "verse": {
+    "en": "Those who fear Allah, when a passing urge from Shaytan touches them, they remember Allah, and at once they see clearly.",
+    "hi": "Jo Allah se darte hain, jab Shaitaan ki taraf se koi waswasa unhe chhoota hai toh woh Allah ko yaad karte hain, aur foran unki aankhein khul jaati hain.",
+    "ref": "Surah Al-A‘raf 7:201"
+   }
+  },
   {
    "id": "anxious",
    "label": {

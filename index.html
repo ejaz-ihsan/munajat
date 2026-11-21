@@ -220,6 +220,39 @@ input[type=time]{background:var(--surface2);border:0;border-radius:8px;color:var
 .callbtn{display:flex;gap:10px;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:12px;background:var(--danger);color:#fff;font-weight:800;font-size:16px;text-decoration:none}
 .callbtn svg{width:20px;height:20px}
 .heartdua{border-top:1px solid var(--line)}.heartdua:first-child{border-top:0}
+.tbadge{min-width:24px;height:24px;padding:0 7px;border-radius:12px;background:var(--danger);color:#fff;font-size:12.5px;font-weight:800;display:none;place-items:center}
+.tbadge.on{display:grid}
+.fb{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.fbtypes{display:flex;flex-wrap:wrap;gap:8px}
+.fbtypes button{border:1px solid var(--line);border-radius:20px;padding:7px 13px;font-weight:700;font-size:13.5px;color:var(--muted)}
+.fbtypes button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tk{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.tk .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted);font-weight:700}
+.tk .tag{border-radius:8px;padding:2px 8px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);font-weight:800}
+.tk .st{border-radius:8px;padding:2px 8px;font-weight:800}
+.tk .st.open{background:color-mix(in srgb,var(--danger) 14%,transparent);color:var(--danger)}
+.tk .st.resolved,.tk .st.added{background:color-mix(in srgb,#2d8a6a 16%,transparent);color:#2d8a6a}
+.tk .st.working{background:color-mix(in srgb,#3b82f6 15%,transparent);color:#3b82f6}
+.tk .new{border-radius:8px;padding:2px 8px;background:var(--danger);color:#fff;font-weight:800}
+.tk.unseen{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent)}
+.tk .who{display:flex;gap:10px;align-items:center}
+.tk .who .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 20%,var(--surface));color:var(--accent);font-weight:800;flex:none}
+.tk .who a{color:var(--muted);font-size:13px;font-weight:600;word-break:break-all;text-decoration:none}
+.tab{position:relative}
+.tabdot{position:absolute;top:6px;right:calc(50% - 20px);width:10px;height:10px;border-radius:50%;background:var(--danger);border:2px solid var(--surface)}
+.notecard{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:14px 16px;border-radius:16px;background:color-mix(in srgb,var(--accent) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line))}
+.notecard svg{color:var(--accent);flex:none;margin-top:2px}
+.sheet select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;font-weight:600}
+.stopts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.stopts button{border:1px solid var(--line);border-radius:10px;padding:10px 6px;font-weight:800;font-size:13.5px;color:var(--muted)}
+.stopts button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tk .msg{white-space:pre-wrap;line-height:1.55;margin:0;word-break:break-word}
+.tk .rep{white-space:pre-wrap;line-height:1.55;margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:0 10px 10px 0;font-size:14.5px}
+.tk .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.tk .acts .pill{padding:6px 12px;font-size:13px;text-decoration:none}
+.segs{display:flex;gap:8px}
+.segs button{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 6px;font-weight:800;font-size:13.5px;color:var(--muted)}
+.segs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .empty{padding:28px 20px;text-align:center;color:var(--muted);line-height:1.5}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
@@ -518,24 +551,24 @@ browseBody(){const q=(view.q||"").trim().toLowerCase();
  ${q?`<button class="iconbtn" data-act="clearq" aria-label="Clear" style="width:34px;height:34px;background:var(--accent);color:var(--accent-ink)">${ic("x")}</button>`:""}</label>
  <div class="grid" id="catgrid">${cats.map(catBtn).join("")||`<div class="empty" style="grid-column:1/-1">Nothing matches “${esc(q)}”.</div>`}</div>
  <button class="find" data-mode="find">${ic("pen-line")}Describe what you need</button>`},
-findBody(){const r=view.found,L=heartLang(),hi=L==="hi";
- const intro=hi?"Jo dil mein hai, apne lafzon mein likho. Jaise: “Main bohot thak gayi hoon, ghar mein roz jhagde hote hain aur koi samajhta nahi.”":"Write what's on your heart, in your own words. For example: “I feel so tired, there are fights at home every day and no one understands me.”";
- let out=`<textarea id="need" placeholder="${esc(intro)}">${esc(view.need||"")}</textarea>
- <button class="find" data-act="find">${ic("sparkles")}${hi?"Meri dua dhoondo":"Find duas for me"}</button>`;
- if(!r)return out+`<p class="muted" style="margin:0;font-size:13px;line-height:1.5;text-align:center">${hi?"Hinglish, English ya dono mein likh sakte ho. Jo likhoge woh sirf is phone par rehta hai.":"You can write in English, Hinglish or both. What you write stays on this phone."}</p>`;
- if(r.crisis)out+=`<div class="heart crisis"><div class="eyebrow" style="color:var(--danger)">${hi?"Aap akele nahi ho":"You are not alone"}</div>
-  <p>${hi?"Aapne jo likha usse lagta hai aap bohot dard mein ho. Aapki jaan Allah ki amaanat hai aur bohot qeemti hai. Abhi kisi se baat karo: kisi apne ko call karo, ya Tele-MANAS par muft aur 24 ghante baat kar sakte ho.":"It sounds like you are in a lot of pain right now. Your life is precious and an amanah from Allah. Please talk to someone now: call someone you trust, or reach Tele-MANAS, free and open 24 hours."}</p>
+findBody(){const r=view.found,LS=S.lang==="both"?["en","hi"]:[S.lang==="hi"?"hi":"en"],L=LS[0];
+ const two=(o,tag="p",st="")=>LS.map((l,k)=>`<${tag} lang="${l==="hi"?"hi-Latn":"en"}" style="${st}${k?"margin-top:8px;color:var(--muted);":""}">${esc(o[l]||o.en)}</${tag}>`).join("");
+ let out=`<textarea id="need" placeholder="Write what's on your heart, in your own words. For example: I feel so tired, there are fights at home every day and no one understands me.">${esc(view.need||"")}</textarea>
+ <button class="find" data-act="find">${ic("sparkles")}Find duas for me</button>`;
+ if(!r)return out+`<p class="muted" style="margin:0;font-size:13px;line-height:1.5;text-align:center">You can write in English, Hinglish or both. What you write stays on this phone.</p>`;
+ if(r.crisis){const C={en:"It sounds like you are in a lot of pain right now. Your life is precious and an amanah from Allah. Please talk to someone now: call someone you trust, or reach Tele-MANAS, free and open 24 hours.",hi:"Aapne jo likha usse lagta hai aap bohot dard mein ho. Aapki jaan Allah ki amaanat hai aur bohot qeemti hai. Abhi kisi se baat karo: kisi apne ko call karo, ya Tele-MANAS par muft aur 24 ghante baat kar sakte ho."};
+  out+=`<div class="heart crisis"><div class="eyebrow" style="color:var(--danger)">You are not alone</div>${two(C,"p")}
   <a class="callbtn" href="tel:14416">${ic("phone")}Tele-MANAS 14416</a>
-  <p class="muted" style="font-size:12.5px;margin:8px 0 0">${hi?"Ya 1-800-891-4416. Agar foran khatra ho toh 112 par call karo.":"Or 1-800-891-4416. If you are in immediate danger, call 112."}</p></div>`;
+  <p class="muted" style="font-size:12.5px;margin:8px 0 0">Or 1-800-891-4416. If you are in immediate danger, call 112.</p></div>`}
  const f=r.feel[0],f2=r.feel[1];
- out+=`<div class="heart"><div class="eyebrow">${r.matched?(hi?"Lagta hai aap":"It sounds like you're"):(hi?"Jo bhi ho":"Whatever it is")}</div>
-  <h2 class="sec" style="margin:0 0 10px;font-size:22px;line-height:1.3">${r.matched?esc(f.label[L])+(f2?` <span style="color:var(--muted);font-weight:500">${hi?"aur":"and"} ${esc(f2.label[L])}</span>`:""):(hi?"Dil par koi bojh hai":"Something is weighing on your heart")}</h2>
-  <p style="margin:0 0 14px;line-height:1.6">${esc(f.comfort[L])}</p>
-  <div class="verse">“${esc(f.verse[L])}”<small>${esc(f.verse.ref)}</small></div></div>`;
- out+=`<div class="label">${hi?"Is waqt ke liye duaein":"Duas for this moment"}</div><div class="card">${r.duas.map((id,k)=>{const d=DUA[id],t=typeof d.t==="object"?(d.t[L]||d.t.en):d.t,tx=hi&&HI[id]?HI[id]:d.en;
-  return `<button class="item heartdua" data-act="heartread" data-i="${k}"><div style="flex:1;min-width:0"><b style="display:block">${esc(t)}</b><span class="muted" style="font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(tx)}</span></div>${ic("chevron-right","class='chev'")}</button>`}).join("")}</div>
-  <button class="find" data-act="heartread" data-i="0">${ic("book-open")}${hi?"Saari duaein padho":"Read all of them"}</button>`;
- if(r.cats.length)out+=`<div class="label">${hi?"Aur topics":"Related topics"}</div><div class="grid">${r.cats.map(id=>catBtn(CAT[id])).join("")}</div>`;
+ out+=`<div class="heart"><div class="eyebrow">${r.matched?"It sounds like you're":"Whatever it is"}</div>
+  <h2 class="sec" style="margin:0 0 10px;font-size:22px;line-height:1.3">${r.matched?esc(f.label.en)+(f2?` <span style="color:var(--muted);font-weight:500">and ${esc(f2.label.en)}</span>`:""):"Something is weighing on your heart"}</h2>
+  ${two(f.comfort,"p","margin:0 0 14px;line-height:1.6;")}
+  <div class="verse">${LS.map((l,k)=>`<span lang="${l==="hi"?"hi-Latn":"en"}" style="display:block;${k?"margin-top:6px;opacity:.8":""}">“${esc(f.verse[l]||f.verse.en)}”</span>`).join("")}<small>${esc(f.verse.ref)}</small></div></div>`;
+ out+=`<div class="label">Duas for this moment</div><div class="card">${r.duas.map((id,k)=>{const d=DUA[id],t=typeof d.t==="object"?(d.t.en||""):d.t,tx=LS.map(l=>l==="hi"&&HI[id]?HI[id]:d.en).filter((v,i,a)=>a.indexOf(v)===i);
+  return `<button class="item heartdua" data-act="heartread" data-i="${k}"><div style="flex:1;min-width:0"><b style="display:block">${esc(t)}</b>${tx.map(x=>`<span class="muted" style="font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(x)}</span>`).join("")}</div>${ic("chevron-right","class='chev'")}</button>`}).join("")}</div>
+  <button class="find" data-act="heartread" data-i="0">${ic("book-open")}Read all of them</button>`;
+ if(r.cats.length)out+=`<div class="label">Related topics</div><div class="grid">${r.cats.map(id=>catBtn(CAT[id])).join("")}</div>`;
  return out},
 category(){const c=CAT[view.cat],ids=duasFor(c.id),isGoal=S.goals.includes(c.id);
  return `<div class="stack" style="gap:20px"><div class="row between"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button></div>
@@ -618,7 +651,7 @@ reader(){if(view.i<0)return V.opening();const ids=view.ids,i=view.i,d=DUA[ids[i]
 saved(){return `<div class="stack" style="gap:20px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button>
  <h1 class="big">Saved Duas</h1>${S.saved.length?`<div class="stack list">${S.saved.map((id,i)=>{const d=DUA[id];return `<button class="goal" data-read-saved="${i}"><div class="info"><h3 style="font-size:17px">${esc(d.t)}</h3><div class="muted" style="font-size:14px">${esc(d.ref)}</div></div></button>`}).join("")}</div>`
  :`<div class="empty card">Tap the bookmark on any dua to keep it here.</div>`}</div>`},
-page(){const P=PAGES[view.p];return `<div class="stack" style="gap:16px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button><h1 class="big">${P[0]}</h1><div class="prose">${P[1]}</div></div>`},
+page(){const P=PAGES[view.p];return `<div class="stack" style="gap:16px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button><h1 class="big">${P[0]}</h1><div class="prose">${P[1]}</div>${view.p==="help"&&window.helpExtra?window.helpExtra():""}</div>`},
 account(){const sw=(k)=>`<button class="switch ${S[k]?"on":""}" data-switch="${k}" role="switch" aria-checked="${S[k]}" aria-label="${k}"></button>`;
  const t12=v=>{let [h,m]=v.split(":").map(Number);const a=h>=12?"PM":"AM";h=h%12||12;return `${h}:${String(m).padStart(2,"0")} ${a}`};
  return `<div class="stack" style="gap:22px"><div><h1 class="big">Me</h1><p class="muted" style="font-size:16px;margin:6px 0 0">Your settings and saved duas.</p></div>
@@ -651,7 +684,7 @@ account(){const sw=(k)=>`<button class="switch ${S[k]?"on":""}" data-switch="${k
   <button class="item" data-sheet="tlFont">${ic("case-sensitive")}<div class="t">Transliteration Font</div><span class="v">${S.tlFont}</span>${ic("chevron-right","class='chev'")}</button>
   <button class="item danger" data-sheet="reset">${ic("trash-2")}<div class="t">Reset All Data</div></button>
  </div>
- ${USER?`<div class="card"><div class="item">${ic("circle-user")}<div class="t">Signed in<small style="word-break:break-all">${esc(USER.email)}</small></div></div>${IS_ADMIN?`<button class="item" data-auth="admin">${ic("users")}<div class="t">Manage buyers<small>Add or remove buyer emails</small></div>${ic("chevron-right","class='chev'")}</button>`:""}<button class="item" data-auth="logout">${ic("log-out")}<div class="t">Log out</div></button></div>`:""}
+ ${USER?`<div class="card"><div class="item">${ic("circle-user")}<div class="t">Signed in<small style="word-break:break-all">${esc(USER.email)}</small></div></div>${IS_ADMIN?`<button class="item" data-auth="admin">${ic("users")}<div class="t">Manage buyers<small>Add or remove buyer emails</small></div>${ic("chevron-right","class='chev'")}</button><button class="item" data-auth="tickets">${ic("inbox")}<div class="t">Support tickets<small>Feedback, problems and dua ideas from buyers</small></div><span class="tbadge" id="tbadge"></span>${ic("chevron-right","class='chev'")}</button>`:""}<button class="item" data-auth="logout">${ic("log-out")}<div class="t">Log out</div></button></div>`:""}
  <div class="card">
   <button class="item" data-page="help">${ic("life-buoy")}<div class="t">Help &amp; Support</div>${ic("chevron-right","class='chev'")}</button>
   <button class="item" data-page="privacy">${ic("lock")}<div class="t">Privacy Policy</div>${ic("chevron-right","class='chev'")}</button>
@@ -661,7 +694,7 @@ account(){const sw=(k)=>`<button class="switch ${S[k]?"on":""}" data-switch="${k
 };
 function catBtn(c){return `<button class="cat" data-cat="${c.id}"><div class="ic" style="background:color-mix(in srgb,${c.color} 16%,var(--surface));color:${c.color}">${ic(c.icon)}</div><span>${esc(c.name)}</span>${ic("chevron-right","class='chev'")}</button>`}
 const PAGES = {
- help:["Help & Support",`<h3>Daily goals</h3><p>Each goal is a set of duas to read every day. Tap “I'm Done” after reading a dua to mark it. Progress starts fresh each morning.</p><h3>Adding goals</h3><p>Open Explore, pick a topic, then tap “Add as daily goal”.</p><h3>Saving duas</h3><p>Tap the bookmark on a dua card. Find them later under Account → Saved Duas.</p><h3>Contact</h3><p>Questions or corrections to a dua? Email the app's support address listed on the store page.</p>`],
+ help:["Help & Support",`<h3>Daily goals</h3><p>Each goal is a set of duas to read every day. Tap “I'm Done” after reading a dua to mark it. Progress starts fresh each morning.</p><h3>Adding goals</h3><p>Open Explore, pick a topic, then tap “Add as daily goal”.</p><h3>Saving duas</h3><p>Tap the bookmark on a dua card. Find them later under Account → Saved Duas.</p><h3>Contact us</h3><p>Found a mistake in a dua, have an idea, or something isn't working? Send us a message below. We read every one and reply here in the app.</p>`],
  privacy:["Privacy Policy",`<p>Your account email and your Munajat progress (name, intentions, saved duas, checklist ticks, Arabic words and settings) are stored in your account with Google Firebase, so you can log in on any phone. They are used only to run Munajat and are never sold or shared.</p><p>Using Reset All Data clears your progress. To delete your account completely, contact us.</p>`],
  terms:["Terms of Use",`<p>This app is offered for personal, non-commercial devotional use. Duas are drawn from the Qur'an and well-known hadith collections, with references shown under each one.</p><p>Translations and transliterations are approximate aids. For religious rulings, please consult a qualified scholar.</p>`]
 };
@@ -728,7 +761,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||
   case "search":tab("explore");view.mode="browse";view.focus=true;return render();
   case "clearq":view.q="";return render();
   case "readall":{const g=S.goals.find(g=>pctOf(g)<100)||S.goals[0]||"daily";const ids=duasFor(g);const first=ids.findIndex(x=>!doneList(g).includes(x));const st=first<0?0:first;return openReader(g,ids,st===0&&!doneList(g).length&&V.hasOpen(g)?-1:st)}
-  case "find":{const t=view.need||"";if(!t.trim()){view.found=null;toast(heartLang()==="hi"?"Pehle kuch lafz likho":"Write a few words first");return render()}view.found=readHeart(t);render();const h=document.querySelector(".heart");if(h)h.scrollIntoView({behavior:"smooth",block:"start"});return}
+  case "find":{const t=view.need||"";if(!t.trim()){view.found=null;toast("Write a few words first");return render()}view.found=readHeart(t);render();const h=document.querySelector(".heart");if(h)h.scrollIntoView({behavior:"smooth",block:"start"});return}
   case "heartread":{const r=view.found;if(!r||!r.duas.length)return;return openReader("_heart",r.duas,+d.i||0)}
   case "readset":return SHEETS.reading();
   case "flip":view.flip=!view.flip;return render();
@@ -874,11 +907,12 @@ async function afterLogin(user){
 }
 function start(){ document.getElementById("tabbar").hidden = false; stack = []; view = { name: "home" };
   if (!started) { started = true; loadCachedContent(); cleanState(); syncReminders(); }
-  render(); refreshContent(); }
+  render(); refreshContent(); setTimeout(checkNotes, 800); }
 auth.onAuthStateChanged(user => { if (user) afterLogin(user); else { USER = null; IS_ADMIN = false; started = false; try { localStorage.removeItem("munajat-ok"); } catch (_) {} showGate(); } });
 document.addEventListener("click", e => { const b = e.target.closest("[data-auth]"); if (!b) return; const a = b.dataset.auth;
   if (a === "logout") { auth.signOut(); authMode = "login"; return; }
   if (a === "admin") return go("buyers");
+  if (a === "tickets") { TK.filter = "open"; return go("tickets"); }
   authMode = a; showGate(); });
 V.buyers = function(){ return `<div class="stack" style="gap:20px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button>
  <div><h1 class="big">Buyers</h1><p class="muted" style="margin:6px 0 0;line-height:1.5">Only emails on this list can use Munajat. Paste buyers' emails from TagMango, one per line or separated by commas.</p></div>
@@ -908,6 +942,127 @@ const _render = render; render = function(){ _render();
 document.addEventListener("click", async e => { const b = e.target.closest("[data-rmbuyer]"); if (!b) return; const em = b.dataset.rmbuyer;
   confirmSheet(`Remove ${em}? They'll be locked out the next time they open Munajat.`, "Remove", async () => { try { await db.collection("buyers").doc(em).delete(); toast("Removed"); loadBuyers(); } catch (err) { toast("Couldn't remove. Try again."); } }); });
 document.addEventListener("visibilitychange", () => { if (!document.hidden && USER) refreshContent(); });
+
+/* ---------- Support tickets: a bridge between buyers and the admin ---------- */
+const TK = { type: "feedback", filter: "open", last: 0, unseen: [], toasted: false, mine: null };
+const TK_TYPES = { feedback: "Feedback", problem: "Problem", dua: "Dua correction", idea: "Suggest a dua or topic" };
+const TK_ST = { open: "Received", working: "Working on it", added: "Added to the app", resolved: "Answered" };
+const TK_ST_ADMIN = { open: "New", working: "Working on it", added: "Added to app", resolved: "Answered" };
+const tkDate = t => { try { const d = t && t.toDate ? t.toDate() : null; return d ? d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) + ", " + d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) : "Just now"; } catch (_) { return ""; } };
+const tkName = () => (S.name || (USER && USER.displayName) || lc(USER && USER.email).split("@")[0] || "Buyer").slice(0, 40);
+
+window.helpExtra = function(){ if (!USER) return "";
+  return `<h2 class="sec" style="margin:8px 0 0;font-size:20px">Send us a message</h2>
+  <div class="fb"><div class="fbtypes">${Object.entries(TK_TYPES).map(([k, v]) => `<button data-fbtype="${k}" class="${TK.type === k ? "on" : ""}">${v}</button>`).join("")}</div>
+   <textarea id="fbmsg" maxlength="2000" placeholder="Write your message. Want a dua or topic added? Tell us what you're going through and we'll try to add it." style="min-height:120px"></textarea>
+   <button class="primary" id="fbsend" style="display:flex;gap:8px;align-items:center;justify-content:center">${ic("send")} Send message</button>
+   <p id="fbinfo" class="muted" style="margin:0;font-size:13px;min-height:18px;font-weight:600">Sent as ${esc(tkName())} (${esc(USER.email)}). You'll get a notification here when we reply or add it to the app.</p></div>
+  <h2 class="sec" id="mymsgs" style="margin:8px 0 0;font-size:20px">My messages</h2>
+  <div id="mytk" class="stack" style="gap:10px"><p class="muted" style="margin:0">Loading…</p></div>`; };
+
+function tkCard(t, admin){ const x = t.data(), st = TK_ST[x.status] ? x.status : "open", fresh = !admin && x.seen === false;
+  const topic = x.topic && CAT[x.topic] ? CAT[x.topic] : null;
+  return `<div class="tk ${fresh ? "unseen" : ""}"><div class="top">${fresh ? `<span class="new">New update</span>` : ""}<span class="tag">${esc(TK_TYPES[x.type] || "Feedback")}</span><span class="st ${st}">${(admin ? TK_ST_ADMIN : TK_ST)[st]}</span><span>${esc(tkDate(x.created))}</span></div>
+  ${admin ? `<div class="who"><div class="av">${esc((x.name || x.email || "?")[0].toUpperCase())}</div><div style="min-width:0"><div style="font-weight:800">${esc(x.name || "Buyer")}</div><a href="mailto:${esc(x.email || "")}">${esc(x.email || "")}</a></div></div>` : ""}
+  <p class="msg">${esc(x.message || "")}</p>
+  ${x.reply ? `<div><div class="muted" style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">${admin ? "Your reply" : "Reply from Munajat"}${x.updated ? " · " + esc(tkDate(x.updated)) : ""}</div><p class="rep">${esc(x.reply)}</p></div>` : (admin ? "" : `<p class="muted" style="margin:0;font-size:13px">Thank you. We'll reply here soon, in sha Allah.</p>`)}
+  ${topic ? `<button class="pill" data-cat="${topic.id}" style="align-self:flex-start;display:flex;gap:6px;align-items:center">${ic(topic.icon)} ${admin ? "Linked topic" : "Open"}: ${esc(topic.name)}</button>` : ""}
+  ${admin ? `<div class="acts"><button class="pill" data-tkreply="${t.id}">${x.reply ? "Update" : "Reply / update"}</button>
+   <a class="pill" href="mailto:${encodeURIComponent(x.email || "")}?subject=${encodeURIComponent("Munajat support: " + (TK_TYPES[x.type] || "Feedback"))}">Email</a>
+   <button class="pill" data-tkdel="${t.id}" style="color:var(--danger)">Delete</button></div>` : ""}</div>`; }
+
+/* --- buyer side --- */
+async function fetchMine(){ if (!USER) return [];
+  const q = await db.collection("tickets").where("uid", "==", USER.uid).get();
+  TK.mine = q.docs.sort((a, b) => ((b.data().updated || b.data().created || {}).seconds || 9e9) - ((a.data().updated || a.data().created || {}).seconds || 9e9));
+  TK.unseen = TK.mine.filter(d => d.data().seen === false); return TK.mine; }
+async function loadMyTickets(){ const box = document.getElementById("mytk"); if (!box || !USER) return;
+  try { const docs = await fetchMine();
+    box.innerHTML = docs.length ? docs.map(d => tkCard(d, false)).join("") : `<p class="muted" style="margin:0">No messages yet.</p>`; icons();
+    const fresh = docs.filter(d => d.data().seen === false);
+    if (fresh.length) { if (view.scrollMine) { const h = document.getElementById("mymsgs"); if (h) h.scrollIntoView({ behavior: "smooth", block: "start" }); view.scrollMine = false; }
+      await Promise.all(fresh.map(d => db.collection("tickets").doc(d.id).update({ seen: true }).catch(() => {})));
+      TK.unseen = []; paintNotes(); }
+  } catch (e) { box.innerHTML = `<p class="muted" style="margin:0">Couldn't load your messages. Check your internet.</p>`; } }
+async function checkNotes(){ if (!USER) return; try { await fetchMine(); } catch (_) { return; }
+  paintNotes();
+  if (TK.unseen.length && !TK.toasted) { TK.toasted = true; toast(TK.unseen.length === 1 ? "You have a new reply from Munajat" : `You have ${TK.unseen.length} new replies from Munajat`); } }
+function noteText(d){ const x = d.data(); return x.status === "added" ? (x.topic && CAT[x.topic] ? `Your suggestion was added to the app in “${CAT[x.topic].name}”.` : "Your suggestion was added to the app.") : (x.reply || "There's an update on your message."); }
+function paintNotes(){ const n = TK.unseen.length;
+  const me = document.querySelector('.tab[data-tab="account"]');
+  if (me) { let dot = me.querySelector(".tabdot"); if (n && !dot) { dot = document.createElement("span"); dot.className = "tabdot"; me.appendChild(dot); } if (!n && dot) dot.remove(); }
+  const help = document.querySelector('[data-page="help"]');
+  if (help) { let b = help.querySelector(".tbadge"); if (n && !b) { b = document.createElement("span"); b.className = "tbadge on"; help.insertBefore(b, help.lastElementChild); } if (b) { if (n) b.textContent = n; else b.remove(); } }
+  const old = document.getElementById("tknote"); if (old) old.remove();
+  if (n && view.name === "home") { const first = app.querySelector(".stack > .row"); if (!first) return;
+    const d = TK.unseen[0], x = d.data();
+    first.insertAdjacentHTML("afterend", `<button class="notecard" id="tknote">${ic(x.status === "added" ? "sparkles" : "message-circle")}<div style="flex:1;min-width:0"><b style="display:block;margin-bottom:2px">${x.status === "added" ? "Your suggestion is in the app" : "Munajat replied to you"}${n > 1 ? ` <span class="muted" style="font-weight:600">+${n - 1} more</span>` : ""}</b><span class="muted" style="font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(noteText(d))}</span></div>${ic("chevron-right", "class='chev'")}</button>`);
+    icons(); document.getElementById("tknote").onclick = () => go("page", { p: "help", scrollMine: true }); } }
+
+/* --- admin side --- */
+V.tickets = function(){ return `<div class="stack" style="gap:18px"><button class="iconbtn" data-act="back" aria-label="Back" style="color:var(--fg)">${ic("chevron-left")}</button>
+ <div><h1 class="big">Support tickets</h1><p class="muted" style="margin:6px 0 0;line-height:1.5">Messages buyers send from Help &amp; Support. When you reply or mark something as added, the buyer gets a notification in their app.</p></div>
+ <div class="segs">${[["open", "To do"], ["done", "Done"], ["ideas", "Ideas"], ["all", "All"]].map(([k, v]) => `<button data-tkfilter="${k}" class="${TK.filter === k ? "on" : ""}">${v}</button>`).join("")}</div>
+ <button class="ghost" id="tkcopy" style="display:flex;gap:8px;align-items:center;justify-content:center">${ic("clipboard-copy")}Copy open dua &amp; topic ideas</button>
+ <div id="tklist" class="stack" style="gap:12px"><p class="muted" style="margin:0">Loading…</p></div></div>`; };
+const tkMatch = (x, f) => { const st = x.status || "open"; return f === "all" || (f === "open" && (st === "open" || st === "working")) || (f === "done" && (st === "added" || st === "resolved")) || (f === "ideas" && (x.type === "idea" || x.type === "dua")); };
+let TK_ALL = [];
+async function loadTickets(){ const box = document.getElementById("tklist"); if (!box) return;
+  try { const q = await db.collection("tickets").orderBy("created", "desc").limit(300).get(); TK_ALL = q.docs;
+    const docs = q.docs.filter(d => tkMatch(d.data(), TK.filter));
+    box.innerHTML = docs.length ? docs.map(d => tkCard(d, true)).join("") : `<div class="empty card">${TK.filter === "open" ? "Nothing to do. Alhamdulillah!" : "Nothing here yet."}</div>`; icons();
+  } catch (e) { box.innerHTML = `<p style="margin:0;color:var(--danger)">Couldn't load tickets. Check the Firestore rules and your internet.</p>`; } }
+async function loadTicketBadge(){ const el = document.getElementById("tbadge"); if (!el || !IS_ADMIN) return;
+  try { const q = await db.collection("tickets").where("status", "==", "open").get(); el.textContent = q.size; el.classList.toggle("on", q.size > 0); } catch (_) {} }
+function tkSheet(id){ const t = TK_ALL.find(d => d.id === id); if (!t) return; const x = t.data(); let st = x.status && x.status !== "open" ? x.status : "resolved";
+  const opts = CATS.map(c => `<option value="${c.id}" ${x.topic === c.id ? "selected" : ""}>${esc(c.name)}</option>`).join("");
+  sheet(`<h2 style="font-size:22px;margin-bottom:4px">Update for ${esc(x.name || "Buyer")}</h2><p class="muted" style="margin:0 0 12px;font-size:13.5px;word-break:break-all">${esc(x.email || "")}</p>
+   <p class="msg" style="margin:0 0 12px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--fg) 5%,transparent);white-space:pre-wrap;font-size:14px;max-height:120px;overflow:auto">${esc(x.message || "")}</p>
+   <textarea id="tkrep" maxlength="2000" style="min-height:120px" placeholder="Your reply. For example: JazakAllah khair! We've added 3 new duas for students in the Exams topic.">${esc(x.reply || "")}</textarea>
+   <div class="stopts">${["working", "added", "resolved", "open"].map(k => `<button data-st="${k}" class="${st === k ? "on" : ""}">${TK_ST_ADMIN[k]}</button>`).join("")}</div>
+   <label style="display:block;font-weight:800;font-size:13px;margin-bottom:6px">Link a topic (optional)</label>
+   <select id="tktopic"><option value="">No topic</option>${opts}</select>
+   <label class="row" style="gap:10px;margin:14px 0;font-weight:700"><input type="checkbox" id="tkmail" style="width:18px;height:18px"> Also email this reply from my Gmail</label>
+   <button class="primary" id="tksave">Save &amp; notify buyer</button>`, L => {
+    L.querySelectorAll("[data-st]").forEach(b => b.onclick = () => { st = b.dataset.st; L.querySelectorAll("[data-st]").forEach(y => y.classList.toggle("on", y === b)); });
+    L.querySelector("#tksave").onclick = async () => { const v = L.querySelector("#tkrep").value.trim(), topic = L.querySelector("#tktopic").value;
+      if (!v && st !== "added") { L.querySelector("#tkrep").focus(); return toast("Write a reply first"); }
+      try { await db.collection("tickets").doc(id).update({ reply: v.slice(0, 2000), status: st, topic: topic || "", seen: false, updated: firebase.firestore.FieldValue.serverTimestamp() });
+        const mail = L.querySelector("#tkmail").checked; close(); toast("Saved. The buyer will see it in their app."); loadTickets();
+        if (mail && x.email) { const body = `Assalamu alaikum ${x.name || ""},\n\n${v}${topic && CAT[topic] ? `\n\nYou can find it in Munajat under “${CAT[topic].name}”.` : ""}\n\nYour message: "${(x.message || "").slice(0, 500)}"\n\nJazakAllahu khayran,\nMunajat`; location.href = `mailto:${encodeURIComponent(x.email)}?subject=${encodeURIComponent("Munajat: an update on your message")}&body=${encodeURIComponent(body)}`; }
+      } catch (_) { toast("Couldn't save. Try again."); } }; }); }
+
+const _render2 = render; render = function(){ _render2();
+  if (view.name === "page" && view.p === "help" && USER) {
+    document.querySelectorAll("[data-fbtype]").forEach(b => b.onclick = () => { TK.type = b.dataset.fbtype; document.querySelectorAll("[data-fbtype]").forEach(x => x.classList.toggle("on", x === b)); });
+    const send = document.getElementById("fbsend"), info = document.getElementById("fbinfo");
+    if (send) send.onclick = async () => { const m = (document.getElementById("fbmsg").value || "").trim();
+      if (m.length < 3) { info.style.color = "var(--danger)"; info.textContent = "Please write your message first."; return; }
+      if (Date.now() - TK.last < 60000) { info.style.color = "var(--danger)"; info.textContent = "Please wait a minute before sending another message."; return; }
+      send.disabled = true; info.style.color = ""; info.textContent = "Sending…";
+      try { await db.collection("tickets").add({ uid: USER.uid, email: lc(USER.email), name: tkName(), type: TK.type, message: m.slice(0, 2000), status: "open", reply: "", seen: true, created: firebase.firestore.FieldValue.serverTimestamp(), app: "web-" + CONTENT_VERSION });
+        TK.last = Date.now(); document.getElementById("fbmsg").value = ""; info.style.color = "var(--teal)"; info.textContent = "Sent. JazakAllahu khayran! You'll get a notification here when we reply."; loadMyTickets();
+      } catch (e) { info.style.color = "var(--danger)"; info.textContent = "Couldn't send. Check your internet and try again."; }
+      send.disabled = false; };
+    if (view.scrollMine === undefined && TK.unseen.length) view.scrollMine = true;
+    loadMyTickets();
+  }
+  if (view.name === "tickets") { loadTickets(); const c = document.getElementById("tkcopy"); if (c) c.onclick = async () => {
+      if (!TK_ALL.length) await loadTickets();
+      const ideas = TK_ALL.map(d => d.data()).filter(x => (x.type === "idea" || x.type === "dua") && (x.status || "open") !== "added" && x.status !== "resolved");
+      if (!ideas.length) return toast("No open ideas right now");
+      const txt = "Munajat buyer requests to review:\n\n" + ideas.map((x, i) => `${i + 1}. [${TK_TYPES[x.type]}] ${x.message}`).join("\n\n");
+      try { await navigator.clipboard.writeText(txt); toast(`Copied ${ideas.length} idea${ideas.length > 1 ? "s" : ""}. Paste them to Claude to add content.`); } catch (_) { sheet(`<h2 style="font-size:20px;margin-bottom:10px">Copy these</h2><textarea style="min-height:240px">${esc(txt)}</textarea>`); } }; }
+  if (view.name === "account") loadTicketBadge();
+  paintNotes();
+};
+document.addEventListener("click", async e => {
+  const f = e.target.closest("[data-tkfilter]"); if (f) { TK.filter = f.dataset.tkfilter; return render(); }
+  const r = e.target.closest("[data-tkreply]"); if (r) return tkSheet(r.dataset.tkreply);
+  const d = e.target.closest("[data-tkdel]"); if (d) { confirmSheet("Delete this ticket? This can't be undone.", "Delete", async () => { try { await db.collection("tickets").doc(d.dataset.tkdel).delete(); toast("Deleted"); loadTickets(); } catch (_) { toast("Couldn't delete. Try again."); } }); return; }
+});
+document.addEventListener("visibilitychange", () => { if (!document.hidden && USER) checkNotes(); });
+setInterval(() => { if (!document.hidden && USER) checkNotes(); }, 120000);
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>

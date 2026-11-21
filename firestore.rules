@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function myEmail() { return request.auth.token.email.lower(); }
+    function verified() { return signedIn() && request.auth.token.email_verified == true; }
+    function isAdmin() { return verified() && myEmail() == 'ejaz.peace@gmail.com'; }
+    function isBuyer() { return verified() && exists(/databases/$(database)/documents/buyers/$(myEmail())); }
+
+    match /buyers/{email} {
+      allow read: if isAdmin() || (verified() && myEmail() == email);
+      allow write: if isAdmin();
+    }
+    match /users/{uid} {
+      allow read, write: if signedIn() && request.auth.uid == uid && (isBuyer() || isAdmin());
+    }
+    // Support tickets: buyers send and read their own; only the admin can reply, change status or delete.
+    match /tickets/{id} {
+      allow create: if (isBuyer() || isAdmin())
+        && request.resource.data.keys().hasOnly(['uid','email','name','type','message','status','reply','seen','created','app'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == myEmail()
+        && request.resource.data.status == 'open'
+        && request.resource.data.reply == ''
+        && request.resource.data.seen == true
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 2000
+        && request.resource.data.created == request.time;
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      // the buyer may only mark a reply as seen
+      allow update: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['seen'])
+        && request.resource.data.seen == true);
+      allow delete: if isAdmin();
+    }
+  }
+}
